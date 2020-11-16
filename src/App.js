@@ -19,14 +19,14 @@ function App() {
   return (
     <RomanziProvider>
       <div className="App">
-        <Navbar callbackRomanzoSelezionato={setRomanzoSelezionato} />
         {/* <Categorie romanzoSelezionato={romanzoSelezionato} callbackArticoli={setArticoli} />
         <Articoli articoli={articoli} romanzoSelezionato={romanzoSelezionato} /> */}
 
         <Router>
+          <Navbar callbackRomanzoSelezionato={setRomanzoSelezionato} romanzoSelezionato={romanzoSelezionato} />
           <Switch>
-            <Route path="/:romanzo" render={(props) => (<Categorie {...props} isAuthed={true} />)} />
-            <Route path="/articoli" component={Articoli} />
+            <Route path="/:titoloRomanzo" render={(props) => (<Categorie {...props} romanzoSelezionato={romanzoSelezionato} callbackArticoli={setArticoli} setRomanzoSelezionato={setRomanzoSelezionato} />)} />
+            {/* <Route path="/:titoloRomanzo/:nomeCategoria" component={Articoli} /> */}
           </Switch>
         </Router>
       </div>

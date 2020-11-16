@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useContext } from 'react';
 import { RomanziContext } from './RomanziContext';
 
@@ -9,6 +9,18 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
     const [categorieDelRomanzo, setCategorieDelRomanzo] = useState([]);
     const [colore, setColore] = useState("#354b5f");
     const [articoli, setArticoli] = useState([]);
+
+    let { titoloRomanzo } = useParams();
+
+    useEffect(() => {
+        for (const romanzo of romanzi) {
+            if (romanzo.titolo === titoloRomanzo) {
+                setRomanzoSelezionato(romanzo);
+                return;
+            }
+        }
+
+    }, [titoloRomanzo, romanzi])
 
     //ogni volta che cambia il romanzoSelezionato, Categorie si refresha e le categorie assumono il colore che ho associato al romanzo. 
     useEffect(() => {
@@ -20,11 +32,13 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
 
     const ciclaSulleCategorie = () => {
         //le categorie sono oggetti con dentro altri oggetti. Devo pusharle in un array, così da passarlo a setCategorieDelRomanzo e averlo nello state. Se è in array, nel render posso fare un map. 
-        let categorieInArray = [];
-        for (const key in romanzoSelezionato.categorie) {
-            categorieInArray.push(key);
+        if (romanzoSelezionato) {
+            let categorieInArray = [];
+            for (const key in romanzoSelezionato.categorie) {
+                categorieInArray.push(key);
+            }
+            setCategorieDelRomanzo(categorieInArray);
         }
-        setCategorieDelRomanzo(categorieInArray);
 
     }
 
@@ -48,8 +62,10 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
 
     // un po' di grafica: imposto il colore delle sezioni, un colore diverso per ciascun romanzo
     const settaColore = () => {
-        const tinta = romanzoSelezionato.coloreAssociato;  //lo prendo dal db!
-        setColore(tinta); //lo metto in uno state, per poterlo poi passare inline nel tag con style={{bachgroundColor : colore }}
+        if (romanzoSelezionato) {
+            const tinta = romanzoSelezionato.coloreAssociato;  //lo prendo dal db!
+            setColore(tinta); //lo metto in uno state, per poterlo poi passare inline nel tag con style={{bachgroundColor : colore }}
+        }
     }
 
     //console.log(articoli);
