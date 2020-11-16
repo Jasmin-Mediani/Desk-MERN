@@ -1,24 +1,36 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Navbar from './Navbar';
 import './App.css';
+import { RomanziProvider } from './RomanziContext';
+import Categorie from './Categorie';
+import Articoli from './Articoli';
+import { BrowserRouter as Router, Switch, Route, useParams } from 'react-router-dom';
+//import styled from 'styled-components';
+
 
 function App() {
+
+  /*** vedi Navbar.js riga 51: 
+  ho bisogno di prendere [ romanzoSelezionato, setRomanzoselezionato ] dal figlio Navbar così da poterlo passare anche a Categorie.js ... Assegno la funzione setRomanzoSelezionato in una proprietà (callbackRomanzoSelezionato). Questa proprietà la passo coi props (come argomento) dentro il componente Navbar.js e ora posso usarla come funzione per prendere la variabile che mi serve. 
+  Ora la variabile può essere passata al tag <Categorie/> e permettere a Categorie.js di usarla. */
+  const [romanzoSelezionato, setRomanzoSelezionato] = useState({});
+  const [articoli, setArticoli] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RomanziProvider>
+      <div className="App">
+        <Navbar callbackRomanzoSelezionato={setRomanzoSelezionato} />
+        {/* <Categorie romanzoSelezionato={romanzoSelezionato} callbackArticoli={setArticoli} />
+        <Articoli articoli={articoli} romanzoSelezionato={romanzoSelezionato} /> */}
+
+        <Router>
+          <Switch>
+            <Route path="/:romanzo" render={(props) => (<Categorie {...props} isAuthed={true} />)} />
+            <Route path="/articoli" component={Articoli} />
+          </Switch>
+        </Router>
+      </div>
+    </RomanziProvider>
   );
 }
 

@@ -1,0 +1,759 @@
+{
+  "data": [
+    {
+      "id": "01",
+      "titolo": "Changeling",
+      "autore": "Jasmin Mediani",
+      "genere": ["fantasy", "psicologico"],
+      "lunghezza": "550 pag.",
+      "anno": 2020,
+      "libro": "",
+      "coloreAssociato": "#9E8400",
+      "categorie": {
+        "infrastrutture": [
+          {
+            "titolo": "Le case nell'Annwn",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "Il Castello di Arawn",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "La cittadella",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "appunti": [
+          {
+            "titolo": "i calzini di Kane",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "Tecniche per smascherare i changeling",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "creature presenti nell'Annwn",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "sistema magico": [
+          {
+            "titolo": "le otri di Colin",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "Gli specchi, funzionamento",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "mantenimento dei cari defunti nell'Annwn",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "architettura": [
+          {
+            "titolo": "La sala del trono",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "L'ardesia a Betws-y-Coed",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "influenze culturali nell'architettura dell'Annwn",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "abbigliamento": [
+          {
+            "titolo": "abbigliamento nell'Annwn",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "abbigliamento di Kane",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "abbigliamento di Colin",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "immagini": ["img1", "img2", "img3", "img4", "img5"],
+        "personaggi": [
+          {
+            "titolo": "Personaggio: Colin",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "Personaggio: Kane",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "Personaggio: Liam",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "categoria 1": "",
+        "categoria 2": "",
+        "categoria 3": "",
+        "categoria 4": "",
+        "categoria 5": "",
+        "categoria 6": "",
+        "categoria 7": "",
+        "categoria 8": "",
+        "categoria 9": "",
+        "categoria 10": ""
+      }
+    },
+    {
+      "id": "02",
+      "titolo": "Cageling",
+      "autore": "Jasmin Mediani",
+      "genere": ["fantasy", "psicologico"],
+      "lunghezza": "400 pag.",
+      "anno": 2020,
+      "libro": "",
+      "coloreAssociato": "#64005D",
+      "categorie": {
+        "infrastrutture": [
+          {
+            "titolo": "Le case nell'Annwn",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "Il Castello di Arawn",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "La cittadella",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "appunti": [
+          {
+            "titolo": "i calzini di Kane",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "Tecniche per smascherare i changeling",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "creature presenti nell'Annwn",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "sistema magico": [
+          {
+            "titolo": "le otri di Colin",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "Gli specchi, funzionamento",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "mantenimento dei cari defunti nell'Annwn",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "architettura": [
+          {
+            "titolo": "La sala del trono",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "L'ardesia a Betws-y-Coed",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "influenze culturali nell'architettura dell'Annwn",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "abbigliamento": [
+          {
+            "titolo": "abbigliamento nell'Annwn",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "abbigliamento di Kane",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "abbigliamento di Colin",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "immagini": ["img1", "img2", "img3", "img4", "img5"],
+        "personaggi": [
+          {
+            "titolo": "Personaggio: Colin",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "Personaggio: Kane",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "Personaggio: Liam",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "categoria 1": "",
+        "categoria 2": "",
+        "categoria 3": "",
+        "categoria 4": "",
+        "categoria 5": "",
+        "categoria 6": "",
+        "categoria 7": "",
+        "categoria 8": "",
+        "categoria 9": "",
+        "categoria 10": ""
+      }
+    },
+    {
+      "id": "03",
+      "titolo": "Bahamas",
+      "autore": "Jasmin Mediani",
+      "genere": ["horror", "fantasy"],
+      "lunghezza": "350 pag.",
+      "anno": 2020,
+      "libro": "",
+      "coloreAssociato": "#00611D",
+      "categorie": {
+        "infrastrutture": [
+          {
+            "titolo": "articolo sulle infrastrutture numero 1",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "articolo sulle infrastrutture numero 2",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "articolo sulle infrastrutture numero 3",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "appunti": [
+          {
+            "titolo": "articolo sugli appunti numero 1",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "articolo sugli appunti numero 2",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "articolo sugli appunti numero 3",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "sistema magico": [
+          {
+            "titolo": "articolo numero 1 sul sistema magico ",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "articolo numero 2 sul sistema magico ",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "articolo numero 3 sul sistema magico ",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "architettura": [
+          {
+            "titolo": "articolo numero 1 sull'architettura ",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "articolo numero 2 sull'architettura ",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "articolo numero 3 sull'architettura ",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "abbigliamento": [
+          {
+            "titolo": "articolo numero 1 sull'abbigliamento ",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "articolo numero 2 sull'abbigliamento ",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "articolo numero 3 sull'abbigliamento ",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "immagini": ["img1", "img2", "img3", "img4", "img5"],
+        "personaggi": [
+          {
+            "titolo": "Personaggio X",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "Personaggio Y",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "Personaggio Z",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "categoria 1": "",
+        "categoria 2": "",
+        "categoria 3": "",
+        "categoria 4": "",
+        "categoria 5": "",
+        "categoria 6": "",
+        "categoria 7": "",
+        "categoria 8": "",
+        "categoria 9": "",
+        "categoria 10": ""
+      }
+    },
+    {
+      "id": "04",
+      "titolo": "Orme d'inchiostro",
+      "autore": "Jasmin Mediani",
+      "genere": ["fantasy", "folklore", "storico"],
+      "lunghezza": "550 pag.",
+      "anno": 2020,
+      "libro": "",
+      "coloreAssociato": "#985600",
+      "categorie": {
+        "infrastrutture": [
+          {
+            "titolo": "Tokaido road",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "Nakasendo road",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "Hime road",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "appunti": [
+          {
+            "titolo": "abilità di Aki",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "distanza da Wilson's stump alla costa",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "disboscamento a Yakushima",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "sistema magico": [
+          {
+            "titolo": "Hoshi no tama di Aki",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "Trasformazioni di Aki",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "il ventaglio di Hirobo",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "architettura": [
+          {
+            "titolo": "pagode",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "ponti",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "locande lungo la Tokaido",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "abbigliamento": [
+          {
+            "titolo": "Kimono",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "Geta",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "Hakama",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "immagini": ["img1", "img2", "img3", "img4", "img5"],
+        "personaggi": [
+          {
+            "titolo": "Personaggio: Aki",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "Personaggio: Maria",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "Personaggio: Tomoko",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          },
+          {
+            "titolo": "Personaggio: Tensai",
+            "corpoDelTesto": "lorem ipsum4",
+            "immagine": "immagine4"
+          }
+        ],
+        "categoria 1": "",
+        "categoria 2": "",
+        "categoria 3": "",
+        "categoria 4": "",
+        "categoria 5": "",
+        "categoria 6": "",
+        "categoria 7": "",
+        "categoria 8": "",
+        "categoria 9": "",
+        "categoria 10": ""
+      }
+    },
+    {
+      "id": "05",
+      "titolo": "Underground Dust",
+      "autore": "Jasmin Mediani",
+      "genere": ["fantasy", "distopico"],
+      "lunghezza": "800 pag.",
+      "anno": 2020,
+      "libro": "",
+      "coloreAssociato": "#012475",
+      "categorie": {
+        "infrastrutture": [
+          {
+            "titolo": "navette a Sidhe",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "La caserma",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "Il giardino dei dormienti",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "appunti": [
+          {
+            "titolo": "titania e la seduzione degli umani",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "avvenimenti nel bunker",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "scena del Samhain",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "sistema magico": [
+          {
+            "titolo": "La Frequenza",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "i contratti",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "il Féth fíada",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "architettura": [
+          {
+            "titolo": "Case a sidhe",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "case a Dublino",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "elementi architettonici a Wicklow",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "abbigliamento": [
+          {
+            "titolo": "abbigliamento delle fate",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "divisa militare v1",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "divisa militare v2",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "immagini": ["img1", "img2", "img3", "img4", "img5"],
+        "personaggi": [
+          {
+            "titolo": "Personaggio: Aidan",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "Personaggio: Grace",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "Personaggio: Gretchen",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "categoria 1": "",
+        "categoria 2": "",
+        "categoria 3": "",
+        "categoria 4": "",
+        "categoria 5": "",
+        "categoria 6": "",
+        "categoria 7": "",
+        "categoria 8": "",
+        "categoria 9": "",
+        "categoria 10": ""
+      }
+    },
+    {
+      "id": "06",
+      "titolo": "Fay",
+      "autore": "Jasmin Mediani",
+      "genere": "fantasy",
+      "lunghezza": "380 pag.",
+      "anno": 2020,
+      "libro": "",
+      "coloreAssociato": "#2A2E37",
+      "categorie": {
+        "infrastrutture": [
+          {
+            "titolo": "alberi in pietre preziose",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "violoncello",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "violino",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "appunti": [
+          {
+            "titolo": "aspetto delle fate",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "il cuore delle fate",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "il ruolo nel diorama",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "sistema magico": [
+          {
+            "titolo": "possibile sistema magico numero 1",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "possibile sistema magico numero 2",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "possibile sistema magico numero 3 ",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "architettura": [
+          {
+            "titolo": "alberi",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "conchiglie come letti",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "spilli come spade",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "abbigliamento": [
+          {
+            "titolo": "fiori come vestiti",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "scampoli di stoffa",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "carta per vestiti",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "immagini": ["img1", "img2", "img3", "img4", "img5"],
+        "personaggi": [
+          {
+            "titolo": "Personaggio: Fata 1",
+            "corpoDelTesto": "lorem ipsum1",
+            "immagine": "immagine1"
+          },
+          {
+            "titolo": "Personaggio: Artigiano",
+            "corpoDelTesto": "lorem ipsum2",
+            "immagine": "immagine2"
+          },
+          {
+            "titolo": "Personaggio: Fata 2",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          }
+        ],
+        "categoria 1": "",
+        "categoria 2": "",
+        "categoria 3": "",
+        "categoria 4": "",
+        "categoria 5": "",
+        "categoria 6": "",
+        "categoria 7": "",
+        "categoria 8": "",
+        "categoria 9": "",
+        "categoria 10": ""
+      }
+    }
+  ]
+}
