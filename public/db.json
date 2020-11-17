@@ -111,18 +111,68 @@
             "titolo": "Personaggio: Liam",
             "corpoDelTesto": "lorem ipsum3",
             "immagine": "immagine3"
+          },
+          {
+            "titolo": "Personaggio: Eleanor",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          },
+          {
+            "titolo": "Personaggio: Jamie",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          },
+          {
+            "titolo": "Personaggio: Arawn",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          },
+          {
+            "titolo": "Personaggio: Aisling",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          },
+          {
+            "titolo": "Personaggio: Margaret",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          },
+          {
+            "titolo": "Personaggio: Titania",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          },
+          {
+            "titolo": "Personaggio: Oberon",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          },
+          {
+            "titolo": "Personaggio: Tith",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          },
+          {
+            "titolo": "Personaggio: Joshua",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
+          },
+          {
+            "titolo": "Personaggio: Liam",
+            "corpoDelTesto": "lorem ipsum3",
+            "immagine": "immagine3"
           }
         ],
-        "categoria 1": "",
-        "categoria 2": "",
-        "categoria 3": "",
-        "categoria 4": "",
-        "categoria 5": "",
-        "categoria 6": "",
-        "categoria 7": "",
-        "categoria 8": "",
-        "categoria 9": "",
-        "categoria 10": ""
+        "categoria 1": [],
+        "categoria 2": [],
+        "categoria 3": [],
+        "categoria 4": [],
+        "categoria 5": [],
+        "categoria 6": [],
+        "categoria 7": [],
+        "categoria 8": [],
+        "categoria 9": [],
+        "categoria 10": []
       }
     },
     {
@@ -238,16 +288,16 @@
             "immagine": "immagine3"
           }
         ],
-        "categoria 1": "",
-        "categoria 2": "",
-        "categoria 3": "",
-        "categoria 4": "",
-        "categoria 5": "",
-        "categoria 6": "",
-        "categoria 7": "",
-        "categoria 8": "",
-        "categoria 9": "",
-        "categoria 10": ""
+        "categoria 1": [],
+        "categoria 2": [],
+        "categoria 3": [],
+        "categoria 4": [],
+        "categoria 5": [],
+        "categoria 6": [],
+        "categoria 7": [],
+        "categoria 8": [],
+        "categoria 9": [],
+        "categoria 10": []
       }
     },
     {
@@ -363,16 +413,16 @@
             "immagine": "immagine3"
           }
         ],
-        "categoria 1": "",
-        "categoria 2": "",
-        "categoria 3": "",
-        "categoria 4": "",
-        "categoria 5": "",
-        "categoria 6": "",
-        "categoria 7": "",
-        "categoria 8": "",
-        "categoria 9": "",
-        "categoria 10": ""
+        "categoria 1": [],
+        "categoria 2": [],
+        "categoria 3": [],
+        "categoria 4": [],
+        "categoria 5": [],
+        "categoria 6": [],
+        "categoria 7": [],
+        "categoria 8": [],
+        "categoria 9": [],
+        "categoria 10": []
       }
     },
     {
@@ -493,16 +543,16 @@
             "immagine": "immagine4"
           }
         ],
-        "categoria 1": "",
-        "categoria 2": "",
-        "categoria 3": "",
-        "categoria 4": "",
-        "categoria 5": "",
-        "categoria 6": "",
-        "categoria 7": "",
-        "categoria 8": "",
-        "categoria 9": "",
-        "categoria 10": ""
+        "categoria 1": [],
+        "categoria 2": [],
+        "categoria 3": [],
+        "categoria 4": [],
+        "categoria 5": [],
+        "categoria 6": [],
+        "categoria 7": [],
+        "categoria 8": [],
+        "categoria 9": [],
+        "categoria 10": []
       }
     },
     {
@@ -618,16 +668,16 @@
             "immagine": "immagine3"
           }
         ],
-        "categoria 1": "",
-        "categoria 2": "",
-        "categoria 3": "",
-        "categoria 4": "",
-        "categoria 5": "",
-        "categoria 6": "",
-        "categoria 7": "",
-        "categoria 8": "",
-        "categoria 9": "",
-        "categoria 10": ""
+        "categoria 1": [],
+        "categoria 2": [],
+        "categoria 3": [],
+        "categoria 4": [],
+        "categoria 5": [],
+        "categoria 6": [],
+        "categoria 7": [],
+        "categoria 8": [],
+        "categoria 9": [],
+        "categoria 10": []
       }
     },
     {
@@ -743,32 +793,32 @@
             "immagine": "immagine3"
           }
         ],
-        "categoria 1": "",
-        "categoria 2": "",
-        "categoria 3": "",
-        "categoria 4": "",
-        "categoria 5": "",
-        "categoria 6": "",
-        "categoria 7": "",
-        "categoria 8": "",
-        "categoria 9": "",
-        "categoria 10": "",
-        "categoria 11": "",
-        "categoria 12": "",
-        "categoria 13": "",
-        "categoria 14": "",
-        "categoria 15": "",
-        "categoria 16": "",
-        "categoria 17": "",
-        "categoria 18": "",
-        "categoria 19": "",
-        "categoria 20": "",
-        "categoria 21": "",
-        "categoria 22": "",
-        "categoria 23": "",
-        "categoria 24": "",
-        "categoria 25": "",
-        "categoria 26": ""
+        "categoria 1": [],
+        "categoria 2": [],
+        "categoria 3": [],
+        "categoria 4": [],
+        "categoria 5": [],
+        "categoria 6": [],
+        "categoria 7": [],
+        "categoria 8": [],
+        "categoria 9": [],
+        "categoria 10": [],
+        "categoria 11": [],
+        "categoria 12": [],
+        "categoria 13": [],
+        "categoria 14": [],
+        "categoria 15": [],
+        "categoria 16": [],
+        "categoria 17": [],
+        "categoria 18": [],
+        "categoria 19": [],
+        "categoria 20": [],
+        "categoria 21": [],
+        "categoria 22": [],
+        "categoria 23": [],
+        "categoria 24": [],
+        "categoria 25": [],
+        "categoria 26": []
       }
     }
   ]

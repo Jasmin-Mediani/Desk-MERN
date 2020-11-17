@@ -20,8 +20,8 @@ const Articoli = ({ articoli, romanzoSelezionato, setRomanzoSelezionato, callbac
                 break;
             }
         }
-        
-        if (nuovoRomanzoSelezionato) { 
+
+        if (nuovoRomanzoSelezionato) {
             console.log(nuovoRomanzoSelezionato.categorie);
             for (const categoria in nuovoRomanzoSelezionato.categorie) {
                 //const on obj qui non va... serve in 
@@ -29,7 +29,7 @@ const Articoli = ({ articoli, romanzoSelezionato, setRomanzoSelezionato, callbac
                     setCategoria(categoria);
                     return;
                 }
-            } 
+            }
         }
     }, [romanzi, titoloRomanzo, nomeCategoria]);  //perché non funziona?
 
@@ -39,7 +39,7 @@ const Articoli = ({ articoli, romanzoSelezionato, setRomanzoSelezionato, callbac
         <div className="container-articoli">Articoli
             <ul className="lista-articoli">
                 {articoli.map((articolo, indice) => (
-                    <li className="titoli" key={indice}>{articolo.titolo}</li>
+                    <li className="li-titolo" key={indice}>{articolo.titolo}</li>
                 ))}
             </ul>
         </div>
