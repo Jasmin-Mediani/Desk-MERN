@@ -4,42 +4,40 @@ import { RomanziContext } from './RomanziContext';
 import { Link, useParams } from 'react-router-dom';
 
 
-const Articoli = ({ articoli, romanzoSelezionato, setRomanzoSelezionato, callbackArticoli, setCategoria }) => {
+const Articoli = ({ articoli, romanzoSelezionato, setRomanzoSelezionato, callbackArticoli }) => {
     const [romanzi, setRomanzi] = useContext(RomanziContext);
-    let { titoloRomanzo } = useParams();
-    let { nomeCategoria } = useParams();
+    const [articoloCliccato, setArticoloCliccato] = useState([]);
+
+    let { titoloRomanzo, nomeCategoria } = useParams();
 
     useEffect(() => {
 
-        let nuovoRomanzoSelezionato;
+        let romanzoCliccato;
 
         for (const romanzo of romanzi) {
             if (romanzo.titolo === titoloRomanzo) {
                 setRomanzoSelezionato(romanzo);
-                nuovoRomanzoSelezionato = romanzo;
+                romanzoCliccato = romanzo;
                 break;
             }
         }
 
-        if (nuovoRomanzoSelezionato) {
-            console.log(nuovoRomanzoSelezionato.categorie);
-            for (const categoria in nuovoRomanzoSelezionato.categorie) {
+        if (romanzoCliccato) {
+            for (const categoria in romanzoCliccato.categorie) {
                 //const on obj qui non va... serve in 
                 if (categoria === nomeCategoria) {
-                    setCategoria(categoria);
+                    callbackArticoli(romanzoCliccato.categorie[categoria]);
                     return;
                 }
             }
         }
-    }, [romanzi, titoloRomanzo, nomeCategoria]);  //perché non funziona?
-
-    // console.log("ciao");
+    }, [romanzi, titoloRomanzo, nomeCategoria, setRomanzoSelezionato, callbackArticoli]);
 
     return (
         <div className="container-articoli">Articoli
             <ul className="lista-articoli">
                 {articoli.map((articolo, indice) => (
-                    <li className="li-titolo" key={indice}>{articolo.titolo}</li>
+                    <Link to={`/${romanzoSelezionato.titolo}/${nomeCategoria}/${articolo.titolo}`} key={indice}><li className="li-titolo">{articolo.titolo}</li></Link>
                 ))}
             </ul>
         </div>

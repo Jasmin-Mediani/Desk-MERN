@@ -145,3 +145,9 @@ li:hover {
     background-color: #2A2E37;
     width: auto;
 } 
+
+/*********************** ARTICOLO (SHOW) *************************/
+
+.contenitore-articolo {
+    color: whitesmoke;
+}

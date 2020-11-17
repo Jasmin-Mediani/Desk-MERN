@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { RomanziContext } from './RomanziContext';
 
 
-const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategorieDelRomanzo, callbackArticoli, categoria, setCategoria }) => {
+const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategorieDelRomanzo, callbackArticoli }) => {
     const [romanzi, setRomanzi] = useContext(RomanziContext);
     const [categorieDelRomanzo, setCategorieDelRomanzo] = useState([]);
     const [colore, setColore] = useState("#354b5f");

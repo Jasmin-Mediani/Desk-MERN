@@ -5,6 +5,7 @@ import { RomanziProvider } from './RomanziContext';
 import Categorie from './Categorie';
 import Articoli from './Articoli';
 import { BrowserRouter as Router, Switch, Route, useParams } from 'react-router-dom';
+import Articolo from './Articolo';
 //import styled from 'styled-components';
 
 
@@ -15,7 +16,7 @@ const App = () => {
   Ora la variabile può essere passata al tag <Categorie/> e permettere a Categorie.js di usarla. */
   const [romanzoSelezionato, setRomanzoSelezionato] = useState({});
   const [articoli, setArticoli] = useState([]);
-  const [categoria, setCategoria] = useState({});
+
 
   return (
     <RomanziProvider>
@@ -23,8 +24,13 @@ const App = () => {
         <Router>
           <Navbar callbackRomanzoSelezionato={setRomanzoSelezionato} romanzoSelezionato={romanzoSelezionato} />
           <Switch>
-            <Route path="/:titoloRomanzo" exact render={(props) => (<Categorie {...props} romanzoSelezionato={romanzoSelezionato} callbackArticoli={setArticoli} articoli={articoli} setRomanzoSelezionato={setRomanzoSelezionato} setCategoria={setCategoria} categoria={categoria} />)} />
-            <Route path="/:titoloRomanzo/:nomeCategoria" render={(props) => (<Articoli {...props} romanzoSelezionato={romanzoSelezionato} callbackArticoli={setArticoli} articoli={articoli} setCategoria={setCategoria} setRomanzoSelezionato={setRomanzoSelezionato} />)} />
+
+            <Route path="/:titoloRomanzo/:nomeCategoria/:titoloArticolo" exact render={(props) => (<Articolo {...props} romanzoSelezionato={romanzoSelezionato} callbackArticoli={setArticoli} articoli={articoli} setRomanzoSelezionato={setRomanzoSelezionato} />)} />
+
+            <Route path="/:titoloRomanzo/:nomeCategoria" exact render={(props) => (<Articoli {...props} romanzoSelezionato={romanzoSelezionato} callbackArticoli={setArticoli} articoli={articoli} setRomanzoSelezionato={setRomanzoSelezionato} />)} />
+
+            <Route path="/:titoloRomanzo" exact render={(props) => (<Categorie {...props} romanzoSelezionato={romanzoSelezionato} callbackArticoli={setArticoli} articoli={articoli} setRomanzoSelezionato={setRomanzoSelezionato} />)} />
+
           </Switch>
         </Router>
       </div>
