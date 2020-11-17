@@ -15,7 +15,6 @@ function Nav({ callbackRomanzoSelezionato, romanzoSelezionato }) {
             <nav>
                 <ul>
                     {romanzi.map((romanzo, indice) => (
-                        // <Link to={"/categorie"}><li key={indice} onClick={prendiCategorie} className="navbar-link">{romanzo.titolo}</li></Link>
                         <Link key={indice} to={`/${romanzo.titolo}`}><li className={romanzoSelezionato.titolo === romanzo.titolo ? "navbar-link cliccato" : "navbar-link"}>{romanzo.titolo}</li></Link>
                     ))}
                 </ul>
@@ -28,4 +27,4 @@ function Nav({ callbackRomanzoSelezionato, romanzoSelezionato }) {
 export default Nav;
 
 
-//nota: nel map dei romanzi, al singolo romanzo ho messo index come key/chiave. In realtà ciascun romanzo avrebbe un id, accessibile con {romanzo.id}, ma con index è più univoco... e mi fa ricordare che dentro il map, il primo argomento è sempre l'oggetto singolo/esimo del ciclo, mentre il secondo argomento è sempre l'index/indice. 
+//nota: nel map dei romanzi, al singolo romanzo ho messo indice come key/chiave. In realtà ciascun romanzo avrebbe un id, accessibile con {romanzo.id}, ma con index è più univoco... e mi fa ricordare che dentro il map, il primo argomento è sempre l'oggetto singolo/esimo del ciclo, mentre il secondo argomento è sempre l'index/indice. 

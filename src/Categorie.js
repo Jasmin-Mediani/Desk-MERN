@@ -4,13 +4,16 @@ import { useContext } from 'react';
 import { RomanziContext } from './RomanziContext';
 
 
-const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategorieDelRomanzo, callbackArticoli }) => {
+const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategorieDelRomanzo, callbackArticoli, categoria, setCategoria }) => {
     const [romanzi, setRomanzi] = useContext(RomanziContext);
     const [categorieDelRomanzo, setCategorieDelRomanzo] = useState([]);
     const [colore, setColore] = useState("#354b5f");
-    const [articoli, setArticoli] = useState([]);
+    const [articoli, setArticoli] = useState({});
+
+    // const [articoletti, setArticoletti] = useState({});  //variabile di appoggio per non mettere articoli nell'url... articoli è lento perché fa parte di uno state che viene elaborato, non va messo nei Link
 
     let { titoloRomanzo } = useParams();
+
 
     useEffect(() => {
         for (const romanzo of romanzi) {
@@ -20,7 +23,7 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
             }
         }
 
-    }, [titoloRomanzo, romanzi])
+    }, [titoloRomanzo, romanzi]);
 
     //ogni volta che cambia il romanzoSelezionato, Categorie si refresha e le categorie assumono il colore che ho associato al romanzo. 
     useEffect(() => {
@@ -43,18 +46,15 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
     }
 
     const cliccaCategoria = (evento) => {
-        //voglio anche le categorie in quanto oggetti col loro contenuto, per metterle in uno state [oggettoContententeTutteLeCategorieDelRomanzo, hook]... su cui ciclare per prendere la categoria selezionata e tutto il suo contenuto: 
+        //voglio anche le categorie in quanto oggetti col loro contenuto, per metterle in uno state [oggettoContententeTutteLeCategorieDelRomanzo, hook]... 
         const oggettoContententeTutteLeCategorieDelRomanzo = romanzoSelezionato.categorie;
         var testoDelBoxCategoriaCliccato = evento.target.innerHTML;
-        //console.log(testoDelBoxCategoriaCliccato);
 
-        // se romanzoSelezionato.categorie ha una chiave che si chiama come il boxcliccato... metti quella chiave col suo valore in un oggetto. 
+        //tutto il contenuto della categoria... sono array di oggetti, array di articoli. 
         const articoletti = oggettoContententeTutteLeCategorieDelRomanzo[testoDelBoxCategoriaCliccato];
 
-
         setArticoli(articoletti);
-
-        //props! callback per dare [articoli, setArticoli] ad App e poi a Articoli.js
+        //props! callback per dare [articoli, setArticoli] ad App e poi ad Articoli.js
         callbackArticoli(articoletti);
 
     }
@@ -72,11 +72,9 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
 
     return (
         <div className="container-categorie">
-            <div className="container-inner-centrato">
-                {categorieDelRomanzo.map(categoria => (
-                    <div className="categoria" style={{ backgroundColor: colore }} key={categoria} onClick={cliccaCategoria}>{categoria}</div>
-                ))}
-            </div>
+            {categorieDelRomanzo.map(categoria => (
+                <Link to={`/${romanzoSelezionato.titolo}/${categoria}`} key={categoria}><div className="categoria" style={{ backgroundColor: colore }} onClick={cliccaCategoria}>{categoria}</div></Link>
+            ))}
         </div>
     );
 }

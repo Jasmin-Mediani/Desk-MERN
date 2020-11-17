@@ -14,10 +14,10 @@ export const RomanziProvider = props => {
 
     const chiamaRomanzi = async () => {
         try {
-            const response = await axios.get('db.json');
+            const response = await axios.get('/db.json');
             const romanzi = response.data.data;
             setRomanzi(romanzi);
-            console.log(romanzi); //va qui dentro, sennò anche se lo metto dopo parte prima della chiamata axios e lo state risulta vuoto
+            //console.log(romanzi); //va nel try, sennò parte prima della chiamata axios e lo state risulta vuoto
         } catch (e) {
             console.error(e);
         }
