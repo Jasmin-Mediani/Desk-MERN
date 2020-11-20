@@ -24,7 +24,7 @@ const Articolo = ({ setRomanzoSelezionato, callbackArticoli }) => {
 
         if (romanzoCliccato) {
             for (const categoria in romanzoCliccato.categorie) {
-                //const on obj qui non va... serve in 
+                //const of obj qui non va... serve in 
                 if (categoria === nomeCategoria) {
                     let articles = romanzoCliccato.categorie[categoria];
                     callbackArticoli(articles);

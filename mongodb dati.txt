@@ -1,0 +1,18 @@
+MONGODB  (molihua1992@gmail.com)
+
+Database user
+Username: Jasmin
+Password: hnrw2zJQYaM*4HzW
+
+
+
+mongo "mongodb+srv://cluster0.7rthi.mongodb.net/<dbname>" --username Jasmin
+
+C:\Program Files\MongoDB\Server\4.4\data\ 
+
+
+
+Database user nuovo:
+
+tutorial
+rxjgO9ZuvKQVc8Cy
