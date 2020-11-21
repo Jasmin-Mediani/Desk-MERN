@@ -1,0 +1,8 @@
+tutorial: 
+
+https://www.youtube.com/watch?v=wgGkF4k9c7A
+
+1) npm init     (e poi "ok" a tutte le domande)... e nella cartella verranno messi i file per le dipendenze con le info del backend.  
+2) npm install express          (installo express, framework per node)
+3) npm install mongoose         (installo mongoose per creare i model)
+4) nel package-json, alla chiave "main" è indicato che l'ingresso del server dovrà trovarsi in un file di nome index.js. Quindi creo il file index.js... ((vai a index.js))

@@ -14,7 +14,9 @@ export const RomanziProvider = props => {
 
     const chiamaRomanzi = async () => {
         try {
-            const response = await axios.get('/db.json');
+            //const response = await axios.get('/db.json');
+            const response = await axios.get('http://127.0.0.1:3002/api/romanzi');
+            //const response = await axios.get('/api/romanzi');
             const romanzi = response.data;
             setRomanzi(romanzi);
             //console.log(romanzi); //va nel try, sennò parte prima della chiamata axios e lo state risulta vuoto

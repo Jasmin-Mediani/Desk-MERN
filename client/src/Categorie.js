@@ -9,6 +9,7 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
     const [categorieDelRomanzo, setCategorieDelRomanzo] = useState([]);
     const [colore, setColore] = useState("#354b5f");
     const [articoli, setArticoli] = useState({});
+    const [numeroArticoli, setNumeroArticoli] = useState('');
 
     // const [articoletti, setArticoletti] = useState({});  //variabile di appoggio per non mettere articoli nell'url... articoli è lento perché fa parte di uno state che viene elaborato, non va messo nei Link
 
@@ -22,6 +23,7 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
                 return;
             }
         }
+        setNumeroArticoli(articoli);
 
     }, [titoloRomanzo, romanzi]);
 
@@ -41,6 +43,13 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
                 categorieInArray.push(key);
             }
             setCategorieDelRomanzo(categorieInArray);
+
+            /* oppure con la funzione .keys() senza ciclo:
+
+             let categorieInArray = romanzoSelezionato.categorie.keys();
+             setCategorieDelRomanzo(categorieInArray);
+
+            */
         }
 
     }
@@ -68,12 +77,16 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
         }
     }
 
-    //console.log(articoli);
 
     return (
         <div className="container-categorie">
             {categorieDelRomanzo.map(categoria => (
-                <Link to={`/${romanzoSelezionato.titolo}/${categoria}`} key={categoria}><div className="categoria" style={{ backgroundColor: colore }} onClick={cliccaCategoria}>{categoria}</div></Link>
+                <Link to={`/${romanzoSelezionato.titolo}/${categoria}`} key={categoria}>
+                    <div className="categoria" style={{ backgroundColor: colore }} onClick={cliccaCategoria}>
+                        <div>{categoria}</div>
+                        <span> ( {romanzoSelezionato.categorie[categoria].length} )</span>
+                    </div>
+                </Link>
             ))}
         </div>
     );

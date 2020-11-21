@@ -6,6 +6,7 @@ import Categorie from './Categorie';
 import Articoli from './Articoli';
 import { BrowserRouter as Router, Switch, Route, useParams } from 'react-router-dom';
 import Articolo from './Articolo';
+import Home from './Home';
 //import styled from 'styled-components';
 
 
@@ -24,7 +25,7 @@ const App = () => {
         <Router>
           <Navbar callbackRomanzoSelezionato={setRomanzoSelezionato} romanzoSelezionato={romanzoSelezionato} />
           <Switch>
-
+            <Route exact path="/" component={Home}></Route>
             <Route path="/:titoloRomanzo/:nomeCategoria/:titoloArticolo" exact render={(props) => (<Articolo {...props} romanzoSelezionato={romanzoSelezionato} callbackArticoli={setArticoli} articoli={articoli} setRomanzoSelezionato={setRomanzoSelezionato} />)} />
 
             <Route path="/:titoloRomanzo/:nomeCategoria" exact render={(props) => (<Articoli {...props} romanzoSelezionato={romanzoSelezionato} callbackArticoli={setArticoli} articoli={articoli} setRomanzoSelezionato={setRomanzoSelezionato} />)} />
