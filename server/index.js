@@ -20,7 +20,6 @@ mongoose.connect('mongodb+srv://Jasmin:SHk84cOiJTD9r3d0@cluster-romanzi.5gep4.mo
 //11) quando vado a questo indirizzo voglio inserire qualcosa nel database
 app.post('/api/aggiungi-romanzo', async (req, res) => {
     const titolo = req.body.titolo;
-    console.log("ciao", titolo);
     const romanzo = new RomanzoModel({ titolo, autore: "Jasmin Mediani" });
 
 

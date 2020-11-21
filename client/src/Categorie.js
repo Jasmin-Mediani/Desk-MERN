@@ -6,7 +6,7 @@ import { RomanziContext } from './RomanziContext';
 
 const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategorieDelRomanzo, callbackArticoli }) => {
     const [romanzi, setRomanzi] = useContext(RomanziContext);
-    const [categorieDelRomanzo, setCategorieDelRomanzo] = useState([]);
+    const [categorieDelRomanzo, setCategorieDelRomanzo] = useState({});
     const [colore, setColore] = useState("#354b5f");
     const [articoli, setArticoli] = useState({});
     const [numeroArticoli, setNumeroArticoli] = useState('');
@@ -37,12 +37,9 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
 
     const ciclaSulleCategorie = () => {
         //le categorie sono oggetti con dentro altri oggetti. Devo pusharle in un array, così da passarlo a setCategorieDelRomanzo e averlo nello state. Se è in array, nel render posso fare un map. 
-        if (romanzoSelezionato) {
-            let categorieInArray = [];
-            for (const key in romanzoSelezionato.categorie) {
-                categorieInArray.push(key);
-            }
-            setCategorieDelRomanzo(categorieInArray);
+        if (romanzoSelezionato && romanzoSelezionato.categorie) {
+            console.log(romanzoSelezionato.categorie);
+            setCategorieDelRomanzo(romanzoSelezionato.categorie);
 
             /* oppure con la funzione .keys() senza ciclo:
 
@@ -64,7 +61,7 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
 
         setArticoli(articoletti);
         //props! callback per dare [articoli, setArticoli] ad App e poi ad Articoli.js
-        callbackArticoli(articoletti);
+        //callbackArticoli(articoletti);
 
     }
 
@@ -78,13 +75,13 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
     }
 
 
-    return (
+    return (  //Oggetto, prendo le chiavi che finiscono nell'array "categorieDelRomanzo" generato dalla funzione keys(), su cui mappo
         <div className="container-categorie">
-            {categorieDelRomanzo.map(categoria => (
+            {Object.keys(categorieDelRomanzo).map(categoria => (
                 <Link to={`/${romanzoSelezionato.titolo}/${categoria}`} key={categoria}>
                     <div className="categoria" style={{ backgroundColor: colore }} onClick={cliccaCategoria}>
                         <div>{categoria}</div>
-                        <span> ( {romanzoSelezionato.categorie[categoria].length} )</span>
+                        <span> ( {categorieDelRomanzo[categoria].length} )</span>
                     </div>
                 </Link>
             ))}
