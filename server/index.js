@@ -32,7 +32,7 @@ app.post('/api/aggiungi-romanzo', async (req, res) => {
 });
 
 app.get('/api/romanzi', async (req, res) => {
-    const romanzi = await RomanzoModel.find();
+    const romanzi = await RomanzoModel.find().sort({ titolo: 1 });  //con find() prendo tutti i risultati, e con sort({titolo: 1}) li ordino per titolo 
     try {
         res.send(JSON.stringify(romanzi));
     } catch (err) {

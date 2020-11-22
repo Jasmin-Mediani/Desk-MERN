@@ -5,13 +5,9 @@ import { RomanziContext } from './RomanziContext';
 
 
 const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategorieDelRomanzo, callbackArticoli }) => {
-    const [romanzi, setRomanzi] = useContext(RomanziContext);
+    const [romanzi] = useContext(RomanziContext);
     const [categorieDelRomanzo, setCategorieDelRomanzo] = useState({});
     const [colore, setColore] = useState("#354b5f");
-    const [articoli, setArticoli] = useState({});
-    const [numeroArticoli, setNumeroArticoli] = useState('');
-
-    // const [articoletti, setArticoletti] = useState({});  //variabile di appoggio per non mettere articoli nell'url... articoli è lento perché fa parte di uno state che viene elaborato, non va messo nei Link
 
     let { titoloRomanzo } = useParams();
 
@@ -23,9 +19,7 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
                 return;
             }
         }
-        setNumeroArticoli(articoli);
-
-    }, [titoloRomanzo, romanzi]);
+    }, [titoloRomanzo, romanzi, setRomanzoSelezionato]);
 
     //ogni volta che cambia il romanzoSelezionato, Categorie si refresha e le categorie assumono il colore che ho associato al romanzo. 
     useEffect(() => {
@@ -36,10 +30,16 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
 
 
     const ciclaSulleCategorie = () => {
-        //le categorie sono oggetti con dentro altri oggetti. Devo pusharle in un array, così da passarlo a setCategorieDelRomanzo e averlo nello state. Se è in array, nel render posso fare un map. 
         if (romanzoSelezionato && romanzoSelezionato.categorie) {
-            console.log(romanzoSelezionato.categorie);
-            setCategorieDelRomanzo(romanzoSelezionato.categorie);
+
+            // metto le categorie in ordine alfabetico:
+            const categorieOrdinate = {};
+            Object.keys(romanzoSelezionato.categorie).sort().forEach(function (key) {
+                categorieOrdinate[key] = romanzoSelezionato.categorie[key];
+            });
+
+            //salvo le categorie nello state
+            setCategorieDelRomanzo(categorieOrdinate);
 
             /* oppure con la funzione .keys() senza ciclo:
 
@@ -50,21 +50,6 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
         }
 
     }
-
-    const cliccaCategoria = (evento) => {
-        //voglio anche le categorie in quanto oggetti col loro contenuto, per metterle in uno state [oggettoContententeTutteLeCategorieDelRomanzo, hook]... 
-        const oggettoContententeTutteLeCategorieDelRomanzo = romanzoSelezionato.categorie;
-        var testoDelBoxCategoriaCliccato = evento.target.innerHTML;
-
-        //tutto il contenuto della categoria... sono array di oggetti, array di articoli. 
-        const articoletti = oggettoContententeTutteLeCategorieDelRomanzo[testoDelBoxCategoriaCliccato];
-
-        setArticoli(articoletti);
-        //props! callback per dare [articoli, setArticoli] ad App e poi ad Articoli.js
-        //callbackArticoli(articoletti);
-
-    }
-
 
     // un po' di grafica: imposto il colore delle sezioni, un colore diverso per ciascun romanzo
     const settaColore = () => {
@@ -79,7 +64,7 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
         <div className="container-categorie">
             {Object.keys(categorieDelRomanzo).map(categoria => (
                 <Link to={`/${romanzoSelezionato.titolo}/${categoria}`} key={categoria}>
-                    <div className="categoria" style={{ backgroundColor: colore }} onClick={cliccaCategoria}>
+                    <div className="categoria" style={{ backgroundColor: colore }}>
                         <div>{categoria}</div>
                         <span> ( {categorieDelRomanzo[categoria].length} )</span>
                     </div>
