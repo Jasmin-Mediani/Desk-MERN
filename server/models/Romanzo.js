@@ -9,7 +9,8 @@ const RomanzoSchema = new mongoose.Schema({
     },
     titolo: {
         type: String,
-        required: true
+        required: true,
+        upsert: true,
     },
     autore: {
         type: String,

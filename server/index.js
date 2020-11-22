@@ -40,6 +40,13 @@ app.get('/api/romanzi', async (req, res) => {
     }
 });
 
+app.delete('/api/delete/:titolo', async (req, res) => {
+    const titolo = req.params.titolo;
+
+    await RomanzoModel.deleteOne({ titolo });
+    res.send('deleted');
+})
+
 
 
 //3) il server dovrà essere in ascolto sulla porta 3002
