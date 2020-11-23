@@ -37,7 +37,6 @@ const Home = () => {
 
         /* Rieseguo la chiamata del pacchettone per aggiornare l'app in tempo reale */
         const responseDelGet = await Axios.get('http://127.0.0.1:3002/api/romanzi');
-        //const response = await axios.get('/api/romanzi');
         const romanzi = responseDelGet.data;
         setRomanzi(romanzi);
     }
@@ -51,23 +50,23 @@ const Home = () => {
 
         /* Rieseguo la chiamata del pacchettone per aggiornare l'app in tempo reale */
         const responseDelGet = await Axios.get('http://127.0.0.1:3002/api/romanzi');
-        //const response = await axios.get('/api/romanzi');
         const romanzi = responseDelGet.data;
         setRomanzi(romanzi);
     }
 
     return (
         <div className="contenitore-home">
+
             <form onSubmit={salvaRomanzo} method="POST">
                 <input className="aggiungi-un-romanzo" type="text" value={titolo} onChange={prendiTitolo} placeholder="titolo del romanzo da aggiungere" />
                 <Link to={`/${titolo}`}><button className="inserisci-romanzo" onClick={creaRomanzo}>inserisci</button></Link>
             </form>
 
-
             <form onSubmit={eliminaRomanzo} method="DELETE">
                 <input className="elimina-un-romanzo" type="text" value={titoloDaEliminare} onChange={prendiTitoloPerEliminarlo} placeholder="titolo del romanzo da cancellare" />
                 <button className="inserisci-romanzo" onClick={eliminaRomanzo}>elimina</button>
             </form>
+
         </div>
     )
 }

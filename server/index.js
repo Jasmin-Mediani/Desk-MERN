@@ -32,7 +32,7 @@ app.post('/api/aggiungi-romanzo', async (req, res) => {
 });
 
 app.get('/api/romanzi', async (req, res) => {
-    const romanzi = await RomanzoModel.find().sort({ titolo: 1 });  //con find() prendo tutti i risultati, e con sort({titolo: 1}) li ordino per titolo 
+    const romanzi = await RomanzoModel.find().sort({ titolo: 1 });  //con find() prendo tutti i risultati, e con sort({titolo: 1}) li ordino per titolo dalla a alla z
     try {
         res.send(JSON.stringify(romanzi));
     } catch (err) {
@@ -55,11 +55,3 @@ app.listen(3002, () => {
 });
 
 
-
-
-/* nota: nel tutorial lui ha un cluster di nome food con dentro la collection nome foodData. Io ho db-app-romanzi con dentro la collection romanzi
-
-tutorial: food ---> foodData
-io: db-app-romanzi ---> romanzi
-
-*/
