@@ -17,6 +17,8 @@ mongoose.connect('mongodb+srv://Jasmin:SHk84cOiJTD9r3d0@cluster-romanzi.5gep4.mo
 //7) ora creo la cartella models, che conterrà il model del singolo romanzo...((vai in models/romanzo.js))
 
 
+/******************* AGGIUNGI ROMANZO **************/
+
 //11) quando vado a questo indirizzo voglio inserire qualcosa nel database
 app.post('/api/aggiungi-romanzo', async (req, res) => {
     const titolo = req.body.titolo;
@@ -31,6 +33,8 @@ app.post('/api/aggiungi-romanzo', async (req, res) => {
     }
 });
 
+/****************** CALL A TUTTI I ROMANZI NEL DB ***************/
+
 app.get('/api/romanzi', async (req, res) => {
     const romanzi = await RomanzoModel.find().sort({ titolo: 1 });  //con find() prendo tutti i risultati, e con sort({titolo: 1}) li ordino per titolo dalla a alla z
     try {
@@ -40,6 +44,8 @@ app.get('/api/romanzi', async (req, res) => {
     }
 });
 
+/************* CANCELLA ROMANZO ************* */
+
 app.delete('/api/delete/:titolo', async (req, res) => {
     const titolo = req.params.titolo;
 
@@ -48,6 +54,48 @@ app.delete('/api/delete/:titolo', async (req, res) => {
 })
 
 
+/************* AGGIUNGI CATEGORIA  ***************/
+
+
+app.post('/api/aggiungi-categoria', async (req, res) => {
+    const romanzo = await RomanzoModel.findOne({ titolo: req.body.titolo });
+    const categoria = req.body.categoria;
+    let categorieAttuali = romanzo.toObject().categorie;
+    if (!categorieAttuali.hasOwnProperty(categoria)) {
+        categorieAttuali[categoria] = [];
+        try {
+            romanzo.categorie = categorieAttuali;
+            romanzo.save();
+            res.send(categorieAttuali);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+});
+
+
+/************* ELIMINA CATEGORIA  *******************/
+
+app.delete('/api/delete/:romanzo/:categoria', async (req, res) => {
+    let romanzo = await RomanzoModel.findOne({ titolo: req.params.romanzo });
+    const categoria = req.params.categoria;
+    let categorieAttuali = romanzo.toObject().categorie;
+
+    if (categorieAttuali.hasOwnProperty(categoria)) {
+        delete categorieAttuali[categoria];
+        try {
+            romanzo.categorie = categorieAttuali;
+            romanzo.save();
+            res.send(categorieAttuali);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+})
+
+
+
+/********************************************************* */
 
 //3) il server dovrà essere in ascolto sulla porta 3002
 app.listen(3002, () => {

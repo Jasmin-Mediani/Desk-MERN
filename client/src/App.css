@@ -40,6 +40,9 @@ ul {
     height: inherit;
     border-radius: 5px;
     background-color: transparent;
+    overflow: auto;
+    scrollbar-width: none; /* scrollbar invisibile per Firefox */
+    -ms-overflow-style: none;
     
 }
 
@@ -98,7 +101,13 @@ li:hover {
 }
 
 /************************************Container Categorie *********************************************/
-
+.container-generale-categorie {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* background-color: red; */
+    justify-content: space-between;
+}
 .container-categorie {
     width: 100%;
     flex-wrap: wrap;
@@ -110,6 +119,7 @@ li:hover {
     max-height: 95vh;
     gap: 50px 50px;
     padding-left: 40px;
+    /* background-color: green; */
 }
 
 .categoria {
@@ -125,6 +135,14 @@ li:hover {
     color: white;
     font-size: 19px;
 }
+
+.div-bottoni-categorie {
+    /* background-color: blue; */
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
 
 /************************* COMPONENTE ARTICOLI *********************/
 .container-articoli {
@@ -183,7 +201,7 @@ li:hover {
     outline: none;
 }
 
-.inserisci-romanzo {
+.inserisci-romanzo, .elimina-romanzo {
     max-width: fit-content;
     padding: 5px;
     font-size: 15px;

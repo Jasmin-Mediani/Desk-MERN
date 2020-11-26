@@ -2,14 +2,63 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useContext } from 'react';
 import { RomanziContext } from './RomanziContext';
+import Axios from 'axios';
 
 
 const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategorieDelRomanzo, callbackArticoli }) => {
-    const [romanzi] = useContext(RomanziContext);
+    const [romanzi, setRomanzi] = useContext(RomanziContext);
     const [categorieDelRomanzo, setCategorieDelRomanzo] = useState({});
     const [colore, setColore] = useState("#354b5f");
 
+    const [categoria, setCategoria] = useState("");
+    const [categoriaDaEliminare, setCategoriaDaEliminare] = useState("");
+
     let { titoloRomanzo } = useParams();
+
+
+    const salvaCategoria = (e) => {
+        e.preventDefault();
+        setCategoria("");
+    }
+
+    const prendiCategoria = (ev) => {
+        var categoriaDigitata = ev.target.value;
+        setCategoria(categoriaDigitata);
+    }
+
+    const prendiCategoriaPerEliminarla = (ev) => {
+        var categoriaDigitata = ev.target.value;
+        setCategoriaDaEliminare(categoriaDigitata);
+    }
+
+
+    /************* crea categoria ***************/
+    const creaCategoria = async () => {
+        const responseDelPost = await Axios.post('http://localhost:3002/api/aggiungi-categoria', {
+            titolo: romanzoSelezionato.titolo,
+            categoria: categoria
+        });
+        console.log(responseDelPost);
+
+        /* Rieseguo la chiamata del pacchettone per aggiornare l'app in tempo reale */
+        const responseDelGet = await Axios.get('http://127.0.0.1:3002/api/romanzi');
+        const romanzi = responseDelGet.data;
+        setRomanzi(romanzi);
+    }
+
+    /***********elimina categoria *****************/
+    const eliminaCategoria = async (e) => {
+        window.confirm("Confermi di voler cancellare questa categoria?");
+        e.preventDefault();
+        await Axios.delete(`http://127.0.0.1:3002/api/delete/${titoloRomanzo}/${categoriaDaEliminare}`);
+        setCategoriaDaEliminare("");
+
+
+        /* Rieseguo la chiamata del pacchettone per aggiornare l'app in tempo reale */
+        const responseDelGet = await Axios.get('http://127.0.0.1:3002/api/romanzi');
+        const romanzi = responseDelGet.data;
+        setRomanzi(romanzi);
+    }
 
 
     useEffect(() => {
@@ -61,15 +110,28 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
 
 
     return (  //Oggetto, prendo le chiavi che finiscono nell'array "categorieDelRomanzo" generato dalla funzione keys(), su cui mappo
-        <div className="container-categorie">
-            {Object.keys(categorieDelRomanzo).map(categoria => (
-                <Link to={`/${romanzoSelezionato.titolo}/${categoria}`} key={categoria}>
-                    <div className="categoria" style={{ backgroundColor: colore }}>
-                        <div>{categoria}</div>
-                        <span> ( {categorieDelRomanzo[categoria].length} )</span>
-                    </div>
-                </Link>
-            ))}
+        <div className="container-generale-categorie">
+            <div className="container-categorie">
+                {Object.keys(categorieDelRomanzo).map(categoria => (
+                    <Link to={`/${romanzoSelezionato.titolo}/${categoria}`} key={categoria}>
+                        <div className="categoria" style={{ backgroundColor: colore }}>
+                            <div>{categoria}</div>
+                            <span> ( {categorieDelRomanzo[categoria].length} )</span>
+                        </div>
+                    </Link>
+                ))}
+            </div>
+            <div className="div-bottoni-categorie">
+                <form method="POST" onSubmit={salvaCategoria}>
+                    <input className="aggiungi-una-categoria" type="text" placeholder="categoria da aggiungere" onChange={prendiCategoria} value={categoria} />
+                    <button className="inserisci-categoria" onClick={creaCategoria}>inserisci</button>
+                </form>
+
+                <form method="DELETE" onSubmit={eliminaCategoria}>
+                    <input className="elimina-una-categoria" type="text" placeholder="categoria da cancellare" value={categoriaDaEliminare} onChange={prendiCategoriaPerEliminarla} />
+                    <button className="elimina-categoria" onClick={eliminaCategoria} >elimina</button>
+                </form>
+            </div>
         </div>
     );
 }
