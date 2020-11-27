@@ -4,9 +4,10 @@ import './App.css';
 import { RomanziProvider } from './RomanziContext';
 import Categorie from './Categorie';
 import Articoli from './Articoli';
-import { BrowserRouter as Router, Switch, Route, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, useParams, Redirect } from 'react-router-dom';
 import Articolo from './Articolo';
 import Home from './Home';
+import CreaArticolo from './CreaArticolo';
 //import styled from 'styled-components';
 
 
@@ -25,12 +26,18 @@ const App = () => {
         <Router>
           <Navbar callbackRomanzoSelezionato={setRomanzoSelezionato} romanzoSelezionato={romanzoSelezionato} />
           <Switch>
-            <Route exact path="/" component={Home}></Route>
+
+            <Route path="/:titoloRomanzo/:nomeCategoria/crea-articolo" exact render={(props) => (<CreaArticolo {...props} romanzoSelezionato={romanzoSelezionato} setRomanzoSelezionato={setRomanzoSelezionato} articoli={articoli} callbackArticoli={setArticoli} />)} />
+
             <Route path="/:titoloRomanzo/:nomeCategoria/:titoloArticolo" exact render={(props) => (<Articolo {...props} romanzoSelezionato={romanzoSelezionato} callbackArticoli={setArticoli} articoli={articoli} setRomanzoSelezionato={setRomanzoSelezionato} />)} />
 
             <Route path="/:titoloRomanzo/:nomeCategoria" exact render={(props) => (<Articoli {...props} romanzoSelezionato={romanzoSelezionato} callbackArticoli={setArticoli} articoli={articoli} setRomanzoSelezionato={setRomanzoSelezionato} />)} />
-
             <Route path="/:titoloRomanzo" exact render={(props) => (<Categorie {...props} romanzoSelezionato={romanzoSelezionato} callbackArticoli={setArticoli} articoli={articoli} setRomanzoSelezionato={setRomanzoSelezionato} />)} />
+
+            <Route exact path="/" component={Home}></Route>
+
+            {/* se gli url digitati non esistono, redirect a home: */}
+            <Route render={() => <Redirect to={{ pathname: "/" }} />} />
 
           </Switch>
         </Router>

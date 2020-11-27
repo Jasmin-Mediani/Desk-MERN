@@ -34,12 +34,22 @@ const Articoli = ({ articoli, romanzoSelezionato, setRomanzoSelezionato, callbac
     }, [romanzi, titoloRomanzo, nomeCategoria, setRomanzoSelezionato, callbackArticoli]);
 
     return (
-        <div className="container-articoli">Articoli
-            <ul className="lista-articoli">
-                {articoli.map((articolo, indice) => (
-                    <Link to={`/${romanzoSelezionato.titolo}/${nomeCategoria}/${articolo.titolo}`} key={indice}><li className="li-titolo">{articolo.titolo}</li></Link>
-                ))}
-            </ul>
+        <div className="container-generale">
+            <div className="container-articoli">Articoli
+                <ul className="lista-articoli">
+                    {articoli.map((articolo, indice) => (
+                        <Link to={`/${romanzoSelezionato.titolo}/${nomeCategoria}/${articolo.titolo}`} key={indice}><li className="li-titolo">{articolo.titolo}</li></Link>
+                    ))}
+                </ul>
+            </div>
+            <div className="div-bottoni-articoli">
+                <Link to={`/${romanzoSelezionato.titolo}/${nomeCategoria}/crea-articolo`}><button className="inserisci-articolo">inserisci</button></Link>
+
+                <form method="DELETE">
+                    <input className="elimina-una-articolo" type="text" placeholder="articolo da cancellare" />
+                    <button className="elimina-articolo">elimina</button>
+                </form>
+            </div>
         </div>
     );
 }

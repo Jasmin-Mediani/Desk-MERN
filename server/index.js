@@ -94,6 +94,36 @@ app.delete('/api/delete/:romanzo/:categoria', async (req, res) => {
 })
 
 
+/****************** AGGIUNGI ARTICOLO *********************/
+app.post('/api/aggiungi-articolo', async (req, res) => {
+    let romanzo = await RomanzoModel.findOne({ titolo: req.body.titolo });
+    const categoria = req.body.categoria;
+    const bodyArticolo = req.body.bodyArticolo;
+    const titoloArticolo = req.body.titoloArticolo;
+
+    let categorieAttuali = romanzo.toObject().categorie;
+
+    let articoliDiCategoriaDiRomanzo = categorieAttuali[categoria];
+    if (titoloArticolo.trim() != "") {
+        articoliDiCategoriaDiRomanzo.push({
+            titolo: titoloArticolo,
+            corpoDelTesto: bodyArticolo,
+            immagine: "",
+        });
+        categorieAttuali[categoria] = articoliDiCategoriaDiRomanzo;
+
+        try {
+            romanzo.categorie = categorieAttuali;
+            romanzo.save();
+            // res.send(articoliDiCategoriaDiRomanzo);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    console.log('aggiunto articolo', titoloArticolo, "per il romanzo", req.body.titolo, "per categoria", categoria, bodyArticolo);
+
+});
 
 /********************************************************* */
 

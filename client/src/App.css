@@ -145,9 +145,13 @@ li:hover {
 
 
 /************************* COMPONENTE ARTICOLI *********************/
-.container-articoli {
+.container-generale {
     width: 100%;
     background-color: #000033;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
 }
 
 .lista-articoli {
@@ -164,6 +168,12 @@ li:hover {
     background-color: #2A2E37;
     width: auto;
 } 
+
+.div-bottoni-articoli {
+    background-color: red;
+    display: flex;
+    justify-content: space-evenly;
+}
 
 /*********************** ARTICOLO (SHOW) *************************/
 
@@ -205,4 +215,18 @@ li:hover {
     max-width: fit-content;
     padding: 5px;
     font-size: 15px;
+}
+
+
+/****************** CREA ARTICOLO ********************/
+
+.crea-articolo-container {
+    width: 100%;
+    height: 95vh;
+    background-color: red;
+}
+
+textarea {
+    height: 400px;
+    width: 80%;
 }
