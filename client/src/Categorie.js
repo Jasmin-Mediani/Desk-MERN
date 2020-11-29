@@ -48,9 +48,9 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
 
     /***********elimina categoria *****************/
     const eliminaCategoria = async (e) => {
-        window.confirm("Confermi di voler cancellare questa categoria?");
+        // window.confirm("Confermi di voler cancellare questa categoria?");
         e.preventDefault();
-        await Axios.delete(`http://127.0.0.1:3002/api/delete/${titoloRomanzo}/${categoriaDaEliminare}`);
+        await Axios.delete(`http://127.0.0.1:3002/api/delete-categoria/${titoloRomanzo}/${categoriaDaEliminare}`);
         setCategoriaDaEliminare("");
 
 

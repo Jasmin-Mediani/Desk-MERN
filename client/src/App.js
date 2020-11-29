@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import Articolo from './Articolo';
 import Home from './Home';
 import CreaArticolo from './CreaArticolo';
+import ModificaArticolo from './ModificaArticolo';
 //import styled from 'styled-components';
 
 
@@ -26,6 +27,8 @@ const App = () => {
         <Router>
           <Navbar callbackRomanzoSelezionato={setRomanzoSelezionato} romanzoSelezionato={romanzoSelezionato} />
           <Switch>
+
+            <Route path="/:titoloRomanzo/:nomeCategoria/:titoloArticolo/modifica-articolo" exact render={(props) => (<ModificaArticolo {...props} romanzoSelezionato={romanzoSelezionato} setRomanzoSelezionato={setRomanzoSelezionato} />)} />
 
             <Route path="/:titoloRomanzo/:nomeCategoria/crea-articolo" exact render={(props) => (<CreaArticolo {...props} romanzoSelezionato={romanzoSelezionato} setRomanzoSelezionato={setRomanzoSelezionato} />)} />
 

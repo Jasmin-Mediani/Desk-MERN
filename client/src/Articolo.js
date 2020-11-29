@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useContext } from 'react';
 import { RomanziContext } from './RomanziContext';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, Link } from 'react-router-dom';
 import Axios from 'axios';
 import parse from 'html-react-parser';
+import ModificaArticolo from './ModificaArticolo';
 
 const Articolo = ({ setRomanzoSelezionato }) => {
-    const parse = require('html-react-parser');
     const [romanzi, setRomanzi] = useContext(RomanziContext);
     const [articoloSelezionato, setArticoloSelezionato] = useState({});
     let history = useHistory(); //al posto di Link
@@ -28,7 +28,7 @@ const Articolo = ({ setRomanzoSelezionato }) => {
 
     }
 
-    /************************************************* */
+    /********************** Prendi romanzo, categoria e articolo in base ai params *************************** */
 
 
     useEffect(() => {
@@ -73,7 +73,7 @@ const Articolo = ({ setRomanzoSelezionato }) => {
                 <form method="DELETE" onSubmit={prevent}>
                     <button className="elimina-articolo" onClick={eliminaArticolo}>elimina articolo</button>
                 </form>
-                <button>Modifica</button>
+                <Link to={`/${titoloRomanzo}/${nomeCategoria}/${titoloArticolo}/modifica-articolo`}><button>Modifica</button></Link>
                 <button>articolo successivo</button>
             </div>
         </div>

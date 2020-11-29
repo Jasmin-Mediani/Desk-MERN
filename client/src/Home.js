@@ -42,9 +42,9 @@ const Home = () => {
     }
 
     const eliminaRomanzo = async (e) => {
-        window.confirm("Confermi di voler cancellare questo romanzo?");
+        // window.confirm("Confermi di voler cancellare questo romanzo?");
         e.preventDefault();
-        await Axios.delete(`http://127.0.0.1:3002/api/delete/${titoloDaEliminare}`);
+        await Axios.delete(`http://127.0.0.1:3002/api/delete-romanzo/${titoloDaEliminare}`);
         setTitoloDaEliminare("");
 
 
