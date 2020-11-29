@@ -124,7 +124,7 @@ li:hover {
 
 .categoria {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
     width: 140px;
@@ -136,10 +136,12 @@ li:hover {
     font-size: 19px;
 }
 
+
 .div-bottoni-categorie {
     /* background-color: blue; */
     display: flex;
     justify-content: space-evenly;
+    padding-top: 20px;
     
 }
 
@@ -151,16 +153,19 @@ li:hover {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    max-height: 95vh;
 
 }
 
 .lista-articoli {
     display: grid;
-    height: auto;
-    max-height: 95vh;
+    max-height: 85vh;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 30px !important; 
     padding: 53px;
+    padding-top: 20px;
+    padding-bottom: 20px !important;
+    background-color: orange;
 }
 
 .lista-articoli li {
@@ -170,7 +175,7 @@ li:hover {
 } 
 
 .div-bottoni-articoli {
-    background-color: red;
+    background-color: pink;
     display: flex;
     justify-content: space-evenly;
 }
@@ -179,8 +184,22 @@ li:hover {
 
 .contenitore-articolo {
     color: whitesmoke;
+    background-color: red;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-
+.testo-e-immagine{
+    background-color: blue;
+    overflow: auto;
+    height: 100%;
+}
+.contenitore-articolo .bottoni {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: yellow;
+}
 
 /**************** COMPONENTE HOME **************/
 
@@ -227,6 +246,6 @@ li:hover {
 }
 
 textarea {
-    height: 400px;
+    height: 90vh;
     width: 80%;
 }

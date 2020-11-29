@@ -115,15 +115,43 @@ app.post('/api/aggiungi-articolo', async (req, res) => {
         try {
             romanzo.categorie = categorieAttuali;
             romanzo.save();
-            // res.send(articoliDiCategoriaDiRomanzo);
+            res.send(articoliDiCategoriaDiRomanzo);
         } catch (err) {
             console.log(err);
         }
     }
 
-    console.log('aggiunto articolo', titoloArticolo, "per il romanzo", req.body.titolo, "per categoria", categoria, bodyArticolo);
-
 });
+
+/********************* ELIMINA ARTICOLO  ***************************/
+
+app.delete('/api/delete-article/:romanzo/:categoria/:articolo', async (req, res) => {
+    let romanzo = await RomanzoModel.findOne({ titolo: req.params.romanzo });
+    const categoria = req.params.categoria;
+    const titoloArticolo = req.params.articolo;
+
+    let categorieAttuali = romanzo.toObject().categorie;
+    let articoliAttuali = categorieAttuali[categoria];
+
+    for (let i = 0; i < articoliAttuali.length; i++) {
+        let articolo = articoliAttuali[i];
+        if (articolo.titolo === titoloArticolo) {
+            articoliAttuali.splice(i, 1);
+            break;
+        }
+    }
+    categorieAttuali[categoria] = articoliAttuali;
+
+    try {
+        romanzo.categorie = categorieAttuali;
+        romanzo.save();
+        res.send(articoliAttuali);
+    } catch (err) {
+        console.log(err);
+    }
+})
+
+
 
 /********************************************************* */
 

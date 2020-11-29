@@ -1,37 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { RomanziContext } from './RomanziContext';
 import { Link, useParams } from 'react-router-dom';
 
-
-const Articoli = ({ articoli, romanzoSelezionato, setRomanzoSelezionato, callbackArticoli }) => {
-    const [romanzi, setRomanzi] = useContext(RomanziContext);
-    const [articoloCliccato, setArticoloCliccato] = useState([]);
-
+const Articoli = ({ romanzoSelezionato, setRomanzoSelezionato }) => {
+    const [romanzi] = useContext(RomanziContext);
+    let [articoli, setArticoli] = useState([]);
     let { titoloRomanzo, nomeCategoria } = useParams();
 
-    useEffect(() => {
 
-        let romanzoCliccato;
+    useEffect(() => {
 
         for (const romanzo of romanzi) {
             if (romanzo.titolo === titoloRomanzo) {
                 setRomanzoSelezionato(romanzo);
-                romanzoCliccato = romanzo;
                 break;
             }
         }
+    }, [romanzi, titoloRomanzo, nomeCategoria, setRomanzoSelezionato]);
 
-        if (romanzoCliccato) {
-            for (const categoria in romanzoCliccato.categorie) {
+    useEffect(() => {
+
+        if (romanzoSelezionato) {
+            for (const categoria in romanzoSelezionato.categorie) {
                 //const on obj qui non va... serve in 
                 if (categoria === nomeCategoria) {
-                    callbackArticoli(romanzoCliccato.categorie[categoria]);
+                    setArticoli(romanzoSelezionato.categorie[categoria]);
                     return;
                 }
             }
         }
-    }, [romanzi, titoloRomanzo, nomeCategoria, setRomanzoSelezionato, callbackArticoli]);
+
+    }, [romanzoSelezionato, romanzi, nomeCategoria]);
 
     return (
         <div className="container-generale">
@@ -45,13 +45,12 @@ const Articoli = ({ articoli, romanzoSelezionato, setRomanzoSelezionato, callbac
             <div className="div-bottoni-articoli">
                 <Link to={`/${romanzoSelezionato.titolo}/${nomeCategoria}/crea-articolo`}><button className="inserisci-articolo">inserisci</button></Link>
 
-                <form method="DELETE">
-                    <input className="elimina-una-articolo" type="text" placeholder="articolo da cancellare" />
-                    <button className="elimina-articolo">elimina</button>
-                </form>
+
             </div>
         </div>
     );
 }
+
+
 
 export default Articoli;

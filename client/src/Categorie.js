@@ -5,7 +5,7 @@ import { RomanziContext } from './RomanziContext';
 import Axios from 'axios';
 
 
-const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategorieDelRomanzo, callbackArticoli }) => {
+const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategorieDelRomanzo }) => {
     const [romanzi, setRomanzi] = useContext(RomanziContext);
     const [categorieDelRomanzo, setCategorieDelRomanzo] = useState({});
     const [colore, setColore] = useState("#354b5f");
