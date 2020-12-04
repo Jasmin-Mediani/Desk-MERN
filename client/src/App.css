@@ -6,16 +6,91 @@
 }
 
 #root {
-    background-color: purple;
+    background-color: inherit;
 }
 
-.App {
-    height: 100vh;
+.App, .div-navigazione, .switch {
+    background-color:  #0D0E10;
+}
+
+.div-navigazione {
+    height: calc(100vh - 56px); /* cioé -36px di bottone switch e -20px di padding al suo div-toggler */
     display: flex;
     flex-wrap: nowrap;
-    background-color: #0D0E10;
     padding: 20px;
 }
+
+.div-toggler {
+    padding-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 40px;
+}
+
+/***** BOTTONE SWITCH Lt/Dk MODE *******/
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196f3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196f3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
 
 /*********************** NAVBAR LATERALE (SELEZIONE ROMANZO) *******************/
 .navWrapper {
@@ -26,7 +101,7 @@
 }
 nav {
     width: max-content;
-    max-height: 95vh;
+    max-height: 70vh;
     overflow: auto;
     scrollbar-width: none; /* scrollbar invisibile per Firefox */
     -ms-overflow-style: none;  /* scrollbar invisibile per Internet Explorer 10+ */
@@ -105,7 +180,6 @@ li:hover {
     display: flex;
     flex-direction: column;
     width: 100%;
-    /* background-color: red; */
     justify-content: space-between;
 }
 .container-categorie {
@@ -119,7 +193,6 @@ li:hover {
     max-height: 95vh;
     gap: 50px 50px;
     padding-left: 40px;
-    /* background-color: green; */
 }
 
 .categoria {
@@ -138,29 +211,56 @@ li:hover {
 
 
 .div-bottoni-categorie {
-    /* background-color: blue; */
     display: flex;
     justify-content: space-evenly;
+    font-size: 20px; 
     padding-top: 20px;
     
 }
 
+.no-categorie {
+    background-color: rgb(255, 196, 0);
+   font-size: 1.6rem; 
+   padding: 20px;
+}
+
+.no-categorie p {
+    text-align: center;
+}
+
 
 /************************* COMPONENTE ARTICOLI *********************/
+
+
+.no-articoli {
+    background-color: rgb(255, 196, 0);
+   font-size: 1.6rem;
+   padding: 20px;
+}
+
+.no-articoli p {
+    text-align: center;
+}
+
 .container-generale {
     width: 100%;
+    max-height: 100vh;
     background-color: #000033;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    max-height: 95vh;
+    /*max-height: 95vh;*/
 
+}
+
+.container-articoli {
+    background-color: red;
 }
 
 .lista-articoli {
     display: grid;
     max-height: 85vh;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-gap: 30px !important; 
     padding: 53px;
     padding-top: 20px;
@@ -184,22 +284,41 @@ li:hover {
 
 .contenitore-articolo {
     color: whitesmoke;
-    background-color: red;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 .testo-e-immagine{
-    background-color: blue;
+    background-color: #B8B8B8;
     overflow: auto;
     height: 100%;
+    padding: 50px;
+    text-align: justify;
 }
 .contenitore-articolo .bottoni {
     display: flex;
     justify-content: space-evenly;
-    background-color: yellow;
+    background-color: #B8B8B8;
+    padding: 25px;
 }
+
+.contenitore-articolo h2 {
+    color: #313131;
+    margin-bottom: 80px;
+    font-size: 2rem;
+}
+
+.contenitore-articolo p {
+    font-size: 1.4rem;
+    line-height: 2.3rem;
+}
+
+.div-corpo-testo {
+    background-color: #4D4D4D;
+    padding: 40px;
+    overflow: auto;
+} 
 
 /**************** COMPONENTE HOME **************/
 
@@ -242,10 +361,42 @@ li:hover {
 .crea-articolo-container {
     width: 100%;
     height: 95vh;
-    background-color: red;
+    background-color: rgb(110, 98, 136);
+    padding-bottom: 50px;
 }
 
 textarea {
     height: 90vh;
     width: 80%;
+}
+
+.crea-articolo-container form {
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    padding: 30px;
+}
+
+.container-bottone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-bottone button {
+    width: 80px;
+    padding: 6px;
+    
+}
+
+#inserisci-titolo {
+    margin-bottom: 50px;
+    height: 50px;
+    padding: 15px;
+}
+
+.editor-wrapper {
+    max-height: inherit;
+    overflow: auto;
 }

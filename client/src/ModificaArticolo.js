@@ -9,7 +9,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
-const ModificaArticolo = ({ romanzoSelezionato, setRomanzoSelezionato }) => {
+const ModificaArticolo = ({ romanzoSelezionato, callbackSetRomanzoSelezionato }) => {
 
     const [romanzi, setRomanzi] = useContext(RomanziContext);
     const [categoriaCorrente, setCategoriaCorrente] = useState("");
@@ -28,7 +28,7 @@ const ModificaArticolo = ({ romanzoSelezionato, setRomanzoSelezionato }) => {
 
         for (const romanzo of romanzi) {
             if (romanzo.titolo === titoloRomanzo) {
-                setRomanzoSelezionato(romanzo);
+                callbackSetRomanzoSelezionato(romanzo);
                 romanzoCliccato = romanzo;
                 break;
             }
@@ -53,7 +53,7 @@ const ModificaArticolo = ({ romanzoSelezionato, setRomanzoSelezionato }) => {
         }
 
 
-    }, [romanzi, titoloRomanzo, nomeCategoria, setRomanzoSelezionato, titoloArticolo]);
+    }, [romanzi, titoloRomanzo, nomeCategoria, callbackSetRomanzoSelezionato, titoloArticolo]);
 
     //serve un form dove inserire titolo, body e img (opzionale). Serve un bottone che quando viene cliccato fa una chiamata post dentro romanzo/categorie/categoria... e mette l'oggetto articolo.
     //Il form onSubmit chiama la funzione creaRomanzo, dentro la quale c'è la chiamata
@@ -85,7 +85,7 @@ const ModificaArticolo = ({ romanzoSelezionato, setRomanzoSelezionato }) => {
         const responseDelGet = await Axios.get('http://127.0.0.1:3002/api/romanzi');
         const romanzi = responseDelGet.data;
         setRomanzi(romanzi);
-        history.push(`/${setRomanzoSelezionato.titolo}/${nomeCategoria}`);
+        history.push(`/${callbackSetRomanzoSelezionato.titolo}/${nomeCategoria}`);
     }
 
     return (

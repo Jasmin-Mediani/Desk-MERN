@@ -59,13 +59,12 @@ const Articolo = ({ setRomanzoSelezionato }) => {
             }
         }
 
-
     }, [romanzi, titoloRomanzo, nomeCategoria, setRomanzoSelezionato, titoloArticolo]);
     return (
         <div className="contenitore-articolo">
             <div className="testo-e-immagine">
-                <h3>{articoloSelezionato.titolo}</h3>
-                <div>{articoloSelezionato.corpoDelTesto ? parse(articoloSelezionato.corpoDelTesto) : ""}</div>
+                <h2>{articoloSelezionato.titolo}</h2>
+                <div className="div-corpo-testo">{articoloSelezionato.corpoDelTesto ? parse(articoloSelezionato.corpoDelTesto) : ""}</div>
                 <img src="" alt="" />
             </div>
             <div className="bottoni">

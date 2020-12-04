@@ -35,13 +35,17 @@ const Articoli = ({ romanzoSelezionato, setRomanzoSelezionato }) => {
 
     return (
         <div className="container-generale">
-            <div className="container-articoli">Articoli
+            {articoli.length > 0 ?
+                <div className="container-articoli">Breadcrumb!
                 <ul className="lista-articoli">
-                    {articoli.map((articolo, indice) => (
-                        <Link to={`/${romanzoSelezionato.titolo}/${nomeCategoria}/${articolo.titolo}`} key={indice}><li className="li-titolo">{articolo.titolo}</li></Link>
-                    ))}
-                </ul>
-            </div>
+                        {articoli.map((articolo, indice) => (
+                            <Link to={`/${romanzoSelezionato.titolo}/${nomeCategoria}/${articolo.titolo}`} key={indice}><li className="li-titolo">{articolo.titolo}</li></Link>
+                        ))}
+                    </ul>
+                </div>
+
+                : <div className="no-articoli"><p className="p-no-articoli">Nessun articolo presente</p></div>
+            }
             <div className="div-bottoni-articoli">
                 <Link to={`/${romanzoSelezionato.titolo}/${nomeCategoria}/crea-articolo`}><button className="inserisci-articolo">inserisci</button></Link>
 

@@ -111,16 +111,19 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
 
     return (  //Oggetto, prendo le chiavi che finiscono nell'array "categorieDelRomanzo" generato dalla funzione keys(), su cui mappo
         <div className="container-generale-categorie">
-            <div className="container-categorie">
-                {Object.keys(categorieDelRomanzo).map(categoria => (
-                    <Link to={`/${romanzoSelezionato.titolo}/${categoria}`} key={categoria}>
-                        <div className="categoria" style={{ backgroundColor: colore }}>
-                            <div>{categoria}</div>
-                            <span> ( {categorieDelRomanzo[categoria].length} )</span>
-                        </div>
-                    </Link>
-                ))}
-            </div>
+            {Object.keys(categorieDelRomanzo).length > 0 ?
+                <div className="container-categorie">
+
+                    {Object.keys(categorieDelRomanzo).map(categoria => (
+                        <Link to={`/${romanzoSelezionato.titolo}/${categoria}`} key={categoria}>
+                            <div className="categoria" style={{ backgroundColor: colore }}>
+                                <div>{categoria}</div>
+                                <span> ( {categorieDelRomanzo[categoria].length} )</span>
+                            </div>
+                        </Link>
+                    ))}
+                </div> : <div className="no-categorie"><p className="p-no-categorie">Nessuna categoria</p></div>
+            }
             <div className="div-bottoni-categorie">
                 <form method="POST" onSubmit={salvaCategoria}>
                     <input className="aggiungi-una-categoria" type="text" placeholder="categoria da aggiungere" onChange={prendiCategoria} value={categoria} />

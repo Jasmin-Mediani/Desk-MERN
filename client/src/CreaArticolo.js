@@ -78,27 +78,21 @@ const CreaArticolo = ({ romanzoSelezionato, setRomanzoSelezionato }) => {
                 <label htmlFor="inserisci-titolo">Titolo</label>
                 <input type="text" id="inserisci-titolo" placeholder="inserisci il titolo" onChange={prendiTitolo} />
                 <label htmlFor="inserisci-corpo-articolo">Testo dell'articolo</label>
-                {/* <input id="inserisci-corpo-articolo" type="text" onChange={prendiBodyArticolo} /> */}
-                {/* <textarea name="" id="" cols="30" rows="30" onChange={prendiBodyArticolo}></textarea> */}
-                <CKEditor
-                    editor={ClassicEditor}
-                    placeholder="inserisci il testo dell'articolo"
-                    onReady={editor => { }}
-                    onChange={(event, editor) => {
-                        const data = editor.getData();
-                        // const datiParsati = parse(data);
-                        setBodyArticolo(data);
-                        console.log({ event, editor, data });
-                    }}
-                    onBlur={(event, editor) => {
-                        console.log('Blur.', editor);
-                    }}
-                    onFocus={(event, editor) => {
-                        console.log('Focus.', editor);
-                    }}
-                />
-                <button type="submit" onClick={postaArticolo}>Invia</button>
+                <div className="editor-wrapper">
+                    <CKEditor className="editor"
+                        editor={ClassicEditor}
+                        placeholder="inserisci il testo dell'articolo"
+                        onReady={editor => { }}
+                        onChange={(event, editor) => {
+                            const data = editor.getData();
+                            setBodyArticolo(data);
+                            console.log({ event, editor, data });
+                        }}
+                    />
+                </div>
             </form>
+            <div className="container-bottone"> <button type="submit" onClick={postaArticolo}>Invia</button></div>
+
         </div>
     )
 }

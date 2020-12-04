@@ -1,1 +1,92 @@
-il file che simula il db.json, se voglio chiamarlo con axios, deve essere messo in public. 
+il file che simula il db.json, in un primo momento in cui voglio fare un db momentaneo lato frontend, se voglio chiamarlo con axios, deve essere messo in public. 
+
+
+
+/************* COME PASSARE DATI DA FIGLIO A PADRE *********************/
+
+Il componente App ha due figli: Navbar e Categorie:
+
+const App = () => {
+  
+    return (
+        <Navbar/>
+        </Categorie>
+    );
+}
+
+Il componente figlio Navbar.js ha un dato (romanzoSelezionato)...
+    const [ romanzoSelezionato, setRomanzoselezionato ] = useState(" ");
+... che voglio passare anche a suo fratello Categorie. 
+
+
+const Nav = () => {
+    const [ romanzoSelezionato, setRomanzoselezionato ] = useState(" ");
+
+    var titolo = "Changeling";
+    setRomanzoSelezionato(valore);
+        //ora romanzoSelezionato ha il valore "Changeling" e servirebbe passarlo al fratello...
+    
+    return (
+        .....
+    );
+}
+
+Per passare il dato al fratello, però, occorre fare risalire il dato fino al padre App. 
+Il procedimento è: in App copio dato+hook:
+
+const App = () => {
+
+     const [ romanzoSelezionato, setRomanzoselezionato ] = useState(" ");  //variabile e setter copiati dal figlio Navbar!
+
+    // adesso dentro il tag del componente-figlio padrone del dato, assegno il setter del dato (setRomanzoSelezionato) a una proprietà inventata di sana pianta per questo scopo: (callbackRomanzoSelezionato):
+
+    return (
+        <Navbar callbackRomanzoSelezionato={setRomanzoSelezionato} romanzoSelezionato={romanzoSelezionato} />
+        </Categorie>
+    );
+}
+
+Questa proprietà la passo come argomento, dentro {} all'interno del componente-funzione Navbar.js: 
+
+const Nav = ({ callbackRomanzoSelezionato }) => {
+    const [ romanzoSelezionato, setRomanzoselezionato ] = useState(" ");
+
+    // ora potrò usarla come funzione per prendere la variabile che mi serve: 
+
+    var titolo = "Changeling";
+    callbackRomanzoSelezionato(titolo);   //la proprietà prende il valore come se fosse una funzione!
+    
+    return (
+        ....
+    );
+}
+   
+Ora il padre App, attraverso questa proprietà callbackRomanzoSelezionato prende il titolo... Ricorda che in app viene detto che callbackRomanzoSelezionato={setRomanzoSelezionato}, quindi setRomanzoSelezionato assegna a romanzoSelezionato il valore, che finisce così nello state... e capisce che...
+const [romanzoSelezionato, setRomanzoSelezionato] = useState("Changeling");
+
+
+
+const App = () => {
+
+     const [ romanzoSelezionato, setRomanzoselezionato ] = useState(" ");  //variabile e setter copiati dal figlio Navbar!
+
+    return (
+        <Navbar callbackRomanzoSelezionato={setRomanzoSelezionato} romanzoSelezionato={romanzoSelezionato} />
+
+        // App ora può passare "romanzoSelezionato" a Categorie, nel suo tag... dove inventerò una proprietà che regge il dato (in genere uguale al dato e al suo hook):
+
+        </Categorie romanzoSelezionato={romanzoSelezionato}>
+    );
+}
+
+
+// Per usarlo, Categorie deve prenderlo come argomento: 
+
+const Categorie = ({romanzoSelezionato}) => {
+
+    //e ora può usarlo!
+
+    return (
+        <div> {romanzoSelezionato} </div>
+    );
+}
