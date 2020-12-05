@@ -16,9 +16,13 @@ import styled, { ThemeProvider } from 'styled-components';
 const App = () => {
   const [romanzoSelezionato, setRomanzoSelezionato] = useState({});
 
+  const StyledApp = styled.div`
+    //qui va il normale css con selettori e proprietà
+  `;
+
   return (
     <RomanziProvider>
-      <div className="App">
+      <StyledApp className="App">
         <div className="div-toggler">
           <label class="switch">
             <input type="checkbox" />
@@ -48,7 +52,7 @@ const App = () => {
             </Switch>
           </Router>
         </div>
-      </div>
+      </StyledApp>
     </RomanziProvider>
   );
 }

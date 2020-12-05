@@ -7,7 +7,7 @@ import Axios from 'axios';
 
 const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategorieDelRomanzo }) => {
     const [romanzi, setRomanzi] = useContext(RomanziContext);
-    const [categorieDelRomanzo, setCategorieDelRomanzo] = useState({});
+    const [categorieDelRomanzo, setCategorieDelRomanzo] = useState(null);
     const [colore, setColore] = useState("#354b5f");
 
     const [categoria, setCategoria] = useState("");
@@ -111,9 +111,9 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
 
     return (  //Oggetto, prendo le chiavi che finiscono nell'array "categorieDelRomanzo" generato dalla funzione keys(), su cui mappo
         <div className="container-generale-categorie">
-            {Object.keys(categorieDelRomanzo).length > 0 ?
+            {/*  check per evitare lo sfarfallio (lo state è lento a caricarsi e si vede per un millesimo di secondo il contenuto di un altro componente): se le categorie non hanno nulla (null) mostra un div vuoto velocissimo; se dentro c'è roba esegui il resto del codice */}
+            {categorieDelRomanzo === null ? <div className="vuoto" /> : (Object.keys(categorieDelRomanzo).length > 0 ?
                 <div className="container-categorie">
-
                     {Object.keys(categorieDelRomanzo).map(categoria => (
                         <Link to={`/${romanzoSelezionato.titolo}/${categoria}`} key={categoria}>
                             <div className="categoria" style={{ backgroundColor: colore }}>
@@ -122,7 +122,7 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
                             </div>
                         </Link>
                     ))}
-                </div> : <div className="no-categorie"><p className="p-no-categorie">Nessuna categoria</p></div>
+                </div> : <div className="no-categorie"><p className="p-no-categorie">Nessuna categoria</p></div>)
             }
             <div className="div-bottoni-categorie">
                 <form method="POST" onSubmit={salvaCategoria}>
