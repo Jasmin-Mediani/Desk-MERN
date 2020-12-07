@@ -68,7 +68,7 @@ const CreaArticolo = ({ romanzoSelezionato, setRomanzoSelezionato }) => {
         const responseDelGet = await Axios.get('http://127.0.0.1:3002/api/romanzi');
         const romanzi = responseDelGet.data;
         setRomanzi(romanzi);
-        history.push(`/${setRomanzoSelezionato.titolo}/${nomeCategoria}`);
+        history.push(`/${titoloRomanzo}/${nomeCategoria}`);
 
     }
 
