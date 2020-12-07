@@ -28,9 +28,10 @@ app.post('/api/aggiungi-romanzo', async (req, res) => {
         if (titolo.trim() == "")
             return res.send();
 
+        romanzo.save(function () {
+            res.send(JSON.stringify(romanzo));
+        });
 
-        await romanzo.save();
-        res.send(JSON.stringify(romanzo));
     } catch (err) {
         console.log(err);
         res.status(400).send();
@@ -71,6 +72,11 @@ app.post('/api/aggiungi-categoria', async (req, res) => {
     try {
         const romanzo = await RomanzoModel.findOne({ titolo: req.body.titolo });
         const categoria = req.body.categoria.toLowerCase();
+        if (categoria == "") {
+            res.status(400).send();
+            return;
+        }
+
         let categorieAttuali = romanzo.toObject().categorie;
         if (categorieAttuali == undefined)
             categorieAttuali = {};
@@ -78,8 +84,9 @@ app.post('/api/aggiungi-categoria', async (req, res) => {
             categorieAttuali[categoria] = [];
 
             romanzo.categorie = categorieAttuali;
-            romanzo.save();
-            res.send(categorieAttuali);
+            romanzo.save(function () { //.save() ha bisogno di una funzione dentro che viene eseguita appena viene eseguito il save (è una callback)
+                res.send(categorieAttuali);
+            });
         }
     } catch (err) {
         console.log(err);
@@ -104,8 +111,10 @@ app.delete('/api/delete-categoria/:romanzo/:categoria', async (req, res) => {
             delete categorieAttuali[categoria];
 
             romanzo.categorie = categorieAttuali;
-            romanzo.save();
-            res.send(categorieAttuali);
+            romanzo.save(function () {
+                res.send(categorieAttuali);
+            });
+
         }
     } catch (err) {
         console.log(err);
@@ -146,8 +155,10 @@ app.post('/api/aggiungi-articolo', async (req, res) => {
 
 
             romanzo.categorie = categorieAttuali;
-            romanzo.save();
-            res.send(articoliDiCategoriaDiRomanzo);
+            romanzo.save(function () {
+                res.send(articoliDiCategoriaDiRomanzo);
+            });
+
         } catch (err) {
             console.log(err);
             res.status(400).send();
@@ -183,8 +194,10 @@ app.post('/api/modifica-articolo', async (req, res) => {
 
 
         romanzo.categorie = categorieAttuali;
-        romanzo.save();
-        res.send(articoliAttuali);
+        romanzo.save(function () {
+            res.send(articoliAttuali);
+
+        });
     } catch (err) {
         console.log(err);
         res.status(400).send();
@@ -215,8 +228,10 @@ app.delete('/api/delete-article/:romanzo/:categoria/:articolo', async (req, res)
 
 
         romanzo.categorie = categorieAttuali;
-        romanzo.save();
-        res.send(articoliAttuali);
+        romanzo.save(function () {
+            res.send(articoliAttuali);
+
+        });
     } catch (err) {
         console.log(err);
         res.status(400).send();

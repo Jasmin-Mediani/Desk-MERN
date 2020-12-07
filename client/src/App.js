@@ -10,6 +10,7 @@ import Articolo from './Articolo';
 import Home from './Home';
 import CreaArticolo from './CreaArticolo';
 import ModificaArticolo from './ModificaArticolo';
+import Welcome from './Welcome';
 import styled, { ThemeProvider } from 'styled-components';
 
 
@@ -24,16 +25,21 @@ const App = () => {
     <RomanziProvider>
       <StyledApp className="App">
         <div className="div-toggler">
-          <label class="switch">
+          <label className="switch">
             <input type="checkbox" />
-            <span class="slider round"></span>
+            <span className="slider round"></span>
           </label>
         </div>
         <div className="div-navigazione">
           <Router>
             <GlobalStyle />
             <Navbar callbackRomanzoSelezionato={setRomanzoSelezionato} romanzoSelezionato={romanzoSelezionato} />
+
             <Switch>
+              <Route path="/" exact component={Welcome} />
+              <Route exact path="/home" component={Home}></Route>
+
+
 
               <Route path="/:titoloRomanzo/:nomeCategoria/:titoloArticolo/modifica-articolo" exact render={(props) => (<ModificaArticolo {...props} romanzoSelezionato={romanzoSelezionato} callbackSetRomanzoSelezionato={setRomanzoSelezionato} />)} />
 
@@ -43,8 +49,6 @@ const App = () => {
 
               <Route path="/:titoloRomanzo/:nomeCategoria" exact render={(props) => (<Articoli {...props} romanzoSelezionato={romanzoSelezionato} setRomanzoSelezionato={setRomanzoSelezionato} />)} />
               <Route path="/:titoloRomanzo" exact render={(props) => (<Categorie {...props} romanzoSelezionato={romanzoSelezionato} setRomanzoSelezionato={setRomanzoSelezionato} />)} />
-
-              <Route exact path="/" component={Home}></Route>
 
               {/* se gli url digitati non esistono, redirect a home: */}
               <Route render={() => <Redirect to={{ pathname: "/" }} />} />

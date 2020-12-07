@@ -38,11 +38,11 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
             titolo: romanzoSelezionato.titolo,
             categoria: categoria
         });
-        console.log(responseDelPost);
 
         /* Rieseguo la chiamata del pacchettone per aggiornare l'app in tempo reale */
         const responseDelGet = await Axios.get('http://127.0.0.1:3002/api/romanzi');
         const romanzi = responseDelGet.data;
+        console.log(romanzi);
         setRomanzi(romanzi);
     }
 
