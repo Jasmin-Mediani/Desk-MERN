@@ -2,11 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: #BDA448;
     
 }
 
 body {
-    background-color: #111111;
+    background-color: #111111;    
 }
 
 #root {
@@ -17,11 +18,17 @@ body {
     background-color:  #0D0E10;
 }
 
+.App {
+    height: 100vh;
+}
+
 .div-navigazione {
     height: calc(100vh - 56px); /* cioé -36px di bottone switch e -20px di padding al suo div-toggler */
     display: flex;
     flex-wrap: nowrap;
     padding: 20px;
+    width: 100%;
+    overflow-y: hidden;
 }
 
 .div-toggler {
@@ -109,7 +116,6 @@ nav {
     overflow: auto;
     scrollbar-width: none; /* scrollbar invisibile per Firefox */
     -ms-overflow-style: none;  /* scrollbar invisibile per Internet Explorer 10+ */
-    margin-left: 10px;
 }
 
 ul {
@@ -142,7 +148,7 @@ li {
     color: rgb(223, 223, 223);
     border: 2px solid black;
     padding: 20px;
-    margin: 3px;
+    margin: 1px;
     background-color: rgb(39, 39, 39);
 }
 
@@ -235,7 +241,9 @@ li:hover {
 
 /************************* COMPONENTE ARTICOLI *********************/
 
-
+html {
+    overflow-y: hidden;
+}
 .no-articoli {
     background-color: rgb(255, 196, 0);
    font-size: 1.6rem;
@@ -249,40 +257,102 @@ li:hover {
 .container-generale {
     width: 100%;
     max-height: 100vh;
-    background-color: #000033;
+    background-color: #202020;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    position: relative;
     /*max-height: 95vh;*/
-
 }
 
-.container-articoli {
-    background-color: red;
+.container-articoli .nome-categoria {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-top: 5px;
+    /*max-height: calc(80vh - 56px);*/
+    max-height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .lista-articoli {
     display: grid;
-    max-height: 85vh;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    max-height: calc(80vh - 50px);
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     grid-gap: 30px !important; 
     padding: 53px;
     padding-top: 20px;
     padding-bottom: 20px !important;
-    background-color: orange;
-}
+   }
 
 .lista-articoli li {
-    color: rgb(223, 223, 223);
-    background-color: #2A2E37;
     width: auto;
+    color: #BDA448;
+    display: flex;
+    flex-wrap: wrap;
+    cursor: default;
+    border: none;
+    background-color: inherit;
 } 
 
+.lista-articoli li.li-titolo a {
+    max-width: 250px;
+    padding: 50px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
 .div-bottoni-articoli {
-    background-color: pink;
     display: flex;
     justify-content: space-evenly;
+    padding-top: 25px;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
 }
+
+.div-bottoni-articoli .inserisci-articolo {
+    letter-spacing: 2px;
+    padding: 7px 20px;
+    background-color: #303030;
+    border: #BDA448;   
+}
+
+.inserisci-articolo:hover {
+    background-color: #333333;
+}
+
+@media screen and (max-width: 360px) {
+
+    .container-articoli, .lista-articoli, .li-titolo {
+        padding: 0px;
+    }
+
+    .lista-articoli {
+        height: calc(80vh - 50px);
+        padding: 5px;
+    }
+
+    /* nav {
+        display: none;
+    } */
+    
+    .div-bottoni-articoli { 
+        height: 50px;
+        bottom: 20px; 
+        display: flex;
+        align-items: flex-end;
+        padding-top: 0px !important;
+    }
+
+    .div-bottoni-articoli button {
+        margin-bottom: 0;
+    }
+}
+
+
 
 /*********************** ARTICOLO (SHOW) *************************/
 
@@ -491,6 +561,42 @@ textarea {
     }
 }
 
+@media screen and (max-width: 769px) {
+    .container-generale {
+        height: auto;
+        max-height: auto;
+    }
+    .div-bottoni-articoli {
+     position: relative;
+     margin-top: 5px;
+     /* margin-top: 50px; */
+     height: 40px;
+    }
+
+    .lista-articoli {
+        padding-bottom: 0px !important;
+
+    }
+}
+
+
+@media screen and (max-width: 361px) {
+    .container-generale {
+        height: auto;
+        max-height: auto;
+    }
+    .div-bottoni-articoli {
+     position: relative;
+     margin-top: 25px;
+     /* margin-top: 50px; */
+     height: 40px;
+    }
+
+    .lista-articoli {
+        padding-bottom: 0px !important;
+
+    }
+}
 
 
   

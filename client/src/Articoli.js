@@ -8,6 +8,8 @@ const Articoli = ({ romanzoSelezionato, setRomanzoSelezionato }) => {
     let [articoli, setArticoli] = useState([]);
     let { titoloRomanzo, nomeCategoria } = useParams();
 
+    const Background = "/immagini/frame-dark-mode.png";
+
 
     useEffect(() => {
 
@@ -36,21 +38,31 @@ const Articoli = ({ romanzoSelezionato, setRomanzoSelezionato }) => {
     return (
         <div className="container-generale">
             {articoli.length > 0 ?
-                <div className="container-articoli">Breadcrumb!
-                <ul className="lista-articoli">
+                <div className="container-articoli">
+                    <p className="nome-categoria"> {nomeCategoria}</p>
+                    <ul className="lista-articoli">
                         {articoli.map((articolo, indice) => (
-                            <Link to={`/${romanzoSelezionato.titolo}/${nomeCategoria}/${articolo.titolo}`} key={indice}><li className="li-titolo">{articolo.titolo}</li></Link>
+                            <li className="li-titolo" style={{
+                                backgroundImage: `url("${Background}")`,
+                                backgroundSize: "contain",
+                                backgroundRepeat: 'no-repeat',
+                                backgroundPosition: 'center',
+                                minHeight: '250px',
+                                minWidth: '250px',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                            }}><Link to={`/${romanzoSelezionato.titolo}/${nomeCategoria}/${articolo.titolo}`} key={indice}><span>{articolo.titolo}</span></Link></li>
                         ))}
                     </ul>
+                    <div className="div-bottoni-articoli">
+                        <Link to={`/${romanzoSelezionato.titolo}/${nomeCategoria}/crea-articolo`}><button className="inserisci-articolo">Inserisci un articolo</button></Link>
+                    </div>
                 </div>
 
                 : <div className="no-articoli"><p className="p-no-articoli">Nessun articolo presente</p></div>
             }
-            <div className="div-bottoni-articoli">
-                <Link to={`/${romanzoSelezionato.titolo}/${nomeCategoria}/crea-articolo`}><button className="inserisci-articolo">inserisci</button></Link>
 
-
-            </div>
         </div>
     );
 }
