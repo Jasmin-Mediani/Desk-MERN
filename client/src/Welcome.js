@@ -18,11 +18,11 @@ const Welcome = () => {
                     minHeight: '300px',
                     minWidth: '300px',
                     height: '70vh',
-                    width: '70vw',
+                    width: '55vw',
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                }}>APP</div>
+                }}><span>APPLICAZIONE</span></div>
 
             <Link to="/home"><button className="bottone-entra">Entra</button></Link>
         </div >

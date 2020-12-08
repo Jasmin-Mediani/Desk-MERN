@@ -434,11 +434,15 @@ textarea {
     /**** HO DOVUTO FARLO INLINE: REACT NON COMPILA L'IMMAGINE IN BACKGROUND*/
    /* background-image: url('/immagini/frame-dark-mode.png');*/
    color:  #BDA448;
+   padding: 200px;
+
 }
 
 .p-welcome {
    /* height: 15vh;*/
     color:  #BDA448;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
 }
 
 .bottone-entra {
@@ -449,4 +453,44 @@ textarea {
     padding: 7px 30px;
     color:  #BDA448;
     background-color: inherit;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.4s;
+    letter-spacing: 2px;
 }
+
+.bottone-entra:focus {
+    outline: none;
+}
+
+.bottone-entra:hover {
+    background-color: #333333;
+}
+
+.contenitore-welcome span {
+    font-size: 3rem;
+    letter-spacing: 2px;
+}
+
+@media screen and (max-width: 992px) {
+    .contenitore-welcome span {
+     font-size: 2.5rem;
+    }
+}
+
+
+@media screen and (max-width: 850px) {
+    .contenitore-welcome span {
+     font-size: 2.4rem;
+    }
+}
+
+@media screen and (max-width: 786px) {
+    .contenitore-welcome span {
+     font-size: 2rem;
+    }
+}
+
+
+
+  
