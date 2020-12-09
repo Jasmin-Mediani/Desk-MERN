@@ -265,12 +265,15 @@ html {
     /*max-height: 95vh;*/
 }
 
+.container-articoli {
+    overflow: hidden;
+}
+
 .container-articoli .nome-categoria {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
-    padding-top: 5px;
-    /*max-height: calc(80vh - 56px);*/
+    padding: 10px;
     max-height: inherit;
     display: flex;
     flex-direction: column;
@@ -279,12 +282,11 @@ html {
 
 .lista-articoli {
     display: grid;
-    max-height: calc(80vh - 50px);
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    /* height: calc(90vh - 40px); */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 30px !important; 
-    padding: 53px;
     padding-top: 20px;
-    padding-bottom: 20px !important;
+    padding-bottom: 50px !important;
    }
 
 .lista-articoli li {
@@ -297,9 +299,20 @@ html {
     background-color: inherit;
 } 
 
+.lista-articoli li.li-titolo {
+    /*background-image è inline nel lato JSX*/
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 200px;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .lista-articoli li.li-titolo a {
-    max-width: 250px;
-    padding: 50px;
+    max-width: 140px;
     text-align: center;
     letter-spacing: 2px;
 }
@@ -307,10 +320,12 @@ html {
 .div-bottoni-articoli {
     display: flex;
     justify-content: space-evenly;
-    padding-top: 25px;
+    padding-top: 30px;
     position: absolute;
-    bottom: 10px;
+    padding-bottom: 5px;
+    bottom: 0px;
     width: 100%;
+    background-color: #202020;
 }
 
 .div-bottoni-articoli .inserisci-articolo {
@@ -323,36 +338,6 @@ html {
 .inserisci-articolo:hover {
     background-color: #333333;
 }
-
-@media screen and (max-width: 360px) {
-
-    .container-articoli, .lista-articoli, .li-titolo {
-        padding: 0px;
-    }
-
-    .lista-articoli {
-        height: calc(80vh - 50px);
-        padding: 5px;
-    }
-
-    /* nav {
-        display: none;
-    } */
-    
-    .div-bottoni-articoli { 
-        height: 50px;
-        bottom: 20px; 
-        display: flex;
-        align-items: flex-end;
-        padding-top: 0px !important;
-    }
-
-    .div-bottoni-articoli button {
-        margin-bottom: 0;
-    }
-}
-
-
 
 /*********************** ARTICOLO (SHOW) *************************/
 
@@ -566,17 +551,11 @@ textarea {
         height: auto;
         max-height: auto;
     }
-    .div-bottoni-articoli {
-     position: relative;
-     margin-top: 5px;
-     /* margin-top: 50px; */
-     height: 40px;
-    }
 
-    .lista-articoli {
+    /* .lista-articoli {
         padding-bottom: 0px !important;
 
-    }
+    } */
 }
 
 
@@ -585,13 +564,7 @@ textarea {
         height: auto;
         max-height: auto;
     }
-    .div-bottoni-articoli {
-     position: relative;
-     margin-top: 25px;
-     /* margin-top: 50px; */
-     height: 40px;
-    }
-
+   
     .lista-articoli {
         padding-bottom: 0px !important;
 

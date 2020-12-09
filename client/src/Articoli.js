@@ -44,14 +44,6 @@ const Articoli = ({ romanzoSelezionato, setRomanzoSelezionato }) => {
                         {articoli.map((articolo, indice) => (
                             <li className="li-titolo" style={{
                                 backgroundImage: `url("${Background}")`,
-                                backgroundSize: "contain",
-                                backgroundRepeat: 'no-repeat',
-                                backgroundPosition: 'center',
-                                minHeight: '250px',
-                                minWidth: '250px',
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
                             }}><Link to={`/${romanzoSelezionato.titolo}/${nomeCategoria}/${articolo.titolo}`} key={indice}><span>{articolo.titolo}</span></Link></li>
                         ))}
                     </ul>
