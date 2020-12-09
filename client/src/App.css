@@ -2,8 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: #BDA448;
-    
+    color: #BDA448; 
+}
+
+* :focus {
+    outline: none;
 }
 
 body {
@@ -191,13 +194,22 @@ li:hover {
     flex-direction: column;
     width: 100%;
     justify-content: space-between;
+    background-color:#202020;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+.nome-del-romanzo {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-bottom: 20px;
 }
 .container-categorie {
     width: 100%;
     flex-wrap: wrap;
     overflow: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     padding-right: 40px;
     height: fit-content;
     max-height: 95vh;
@@ -206,7 +218,7 @@ li:hover {
 }
 
 .categoria {
-    display: flex;
+    /* display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
@@ -216,7 +228,27 @@ li:hover {
     margin: 20px;
     border-radius: 5px;
     color: white;
-    font-size: 19px;
+    font-size: 19px; */
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 200px;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nome-della-categoria {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 140px;
+    width: 120px;
+    font-size: 1.4rem;
+    text-align: center;
 }
 
 
@@ -225,7 +257,17 @@ li:hover {
     justify-content: space-evenly;
     font-size: 20px; 
     padding-top: 20px;
-    
+}
+
+.div-bottoni-categorie button, .div-bottoni-categorie input {
+    letter-spacing: 2px;
+    padding: 7px 20px;
+    background-color: #303030 !important;
+    border: none;
+}
+
+.div-bottoni-categorie button {
+    border: 1px solid #202020;
 }
 
 .no-categorie {
@@ -238,6 +280,84 @@ li:hover {
     text-align: center;
 }
 
+@media screen and (max-width: 900px) {
+
+    .div-bottoni-categorie {
+        height: 120px;
+        padding: 0;
+    }
+    .div-bottoni-categorie form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       justify-content: space-around;
+        flex-wrap: wrap;
+        height: inherit;
+       
+    }
+
+    .div-bottoni-categorie button {
+        padding-top: 10px;
+    }
+
+}
+
+@media screen and (max-width: 681px) {
+
+    .div-bottoni-categorie {
+        height: 200px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+    }
+    .div-bottoni-categorie form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       justify-content: flex-end;
+        flex-wrap: wrap;
+        height: inherit;
+    }
+
+    .div-bottoni-categorie button {
+        margin-top: 5px;
+    }
+
+}
+
+@media screen and (max-width: 285px) {
+
+    .div-bottoni-categorie {
+        height: 200px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+    }
+    .div-bottoni-categorie form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       justify-content: flex-end;
+        flex-wrap: wrap;
+        height: inherit;
+    }
+
+    .div-bottoni-categorie button {
+        margin-top: 5px;
+    }
+
+    .container-categorie {
+        padding: 0;
+    }
+
+}
+
+
+
 
 /************************* COMPONENTE ARTICOLI *********************/
 
@@ -245,7 +365,6 @@ html {
     overflow-y: hidden;
 }
 .no-articoli {
-    background-color: rgb(255, 196, 0);
    font-size: 1.6rem;
    padding: 20px;
 }
@@ -267,6 +386,8 @@ html {
 
 .container-articoli {
     overflow: hidden;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .container-articoli .nome-categoria {
@@ -324,14 +445,15 @@ html {
     position: absolute;
     padding-bottom: 5px;
     bottom: 0px;
-    width: 100%;
+    width: calc(100% - 20px);
+    right: 10px;  /* mah */
     background-color: #202020;
 }
 
 .div-bottoni-articoli .inserisci-articolo {
     letter-spacing: 2px;
     padding: 7px 20px;
-    background-color: #303030;
+    background-color: #303030 !important;
     border: #BDA448;   
 }
 

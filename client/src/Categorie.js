@@ -8,12 +8,14 @@ import Axios from 'axios';
 const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategorieDelRomanzo }) => {
     const [romanzi, setRomanzi] = useContext(RomanziContext);
     const [categorieDelRomanzo, setCategorieDelRomanzo] = useState(null);
-    const [colore, setColore] = useState("#354b5f");
+    //const [colore, setColore] = useState("#354b5f");
 
     const [categoria, setCategoria] = useState("");
     const [categoriaDaEliminare, setCategoriaDaEliminare] = useState("");
 
     let { titoloRomanzo } = useParams();
+
+    const Background = "/immagini/frame-dark-mode.png";
 
 
     const salvaCategoria = (e) => {
@@ -73,7 +75,7 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
     //ogni volta che cambia il romanzoSelezionato, Categorie si refresha e le categorie assumono il colore che ho associato al romanzo. 
     useEffect(() => {
         ciclaSulleCategorie();
-        settaColore();
+        //settaColore();
     }, [romanzoSelezionato]);
 
 
@@ -100,30 +102,37 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
 
     }
 
-    // un po' di grafica: imposto il colore delle sezioni, un colore diverso per ciascun romanzo
-    const settaColore = () => {
-        if (romanzoSelezionato) {
-            const tinta = romanzoSelezionato.coloreAssociato;  //lo prendo dal db!
-            setColore(tinta); //lo metto in uno state, per poterlo poi passare inline nel tag con style={{bachgroundColor : colore }}
-        }
-    }
+    // un po' di grafica: imposto il colore delle sezioni, un colore diverso per ciascun romanzo 
+    // const settaColore = () => {
+    //     if (romanzoSelezionato) {
+    //         const tinta = romanzoSelezionato.coloreAssociato;  //lo prendo dal db!
+    //         setColore(tinta); //lo metto in uno state, per poterlo poi passare inline nel tag con style={{bachgroundColor : colore }}
+    //     }
+    // }
+
+
 
 
     return (  //Oggetto, prendo le chiavi che finiscono nell'array "categorieDelRomanzo" generato dalla funzione keys(), su cui mappo
         <div className="container-generale-categorie">
-            {/*  check per evitare lo sfarfallio (lo state è lento a caricarsi e si vede per un millesimo di secondo il contenuto di un altro componente): se le categorie non hanno nulla (null) mostra un div vuoto velocissimo; se dentro c'è roba esegui il resto del codice */}
-            {categorieDelRomanzo === null ? <div className="vuoto" /> : (Object.keys(categorieDelRomanzo).length > 0 ?
-                <div className="container-categorie">
-                    {Object.keys(categorieDelRomanzo).map(categoria => (
-                        <Link to={`/${romanzoSelezionato.titolo}/${categoria}`} key={categoria}>
-                            <div className="categoria" style={{ backgroundColor: colore }}>
-                                <div>{categoria}</div>
-                                <span> ( {categorieDelRomanzo[categoria].length} )</span>
+            <div>
+                <p className="nome-del-romanzo">{titoloRomanzo}</p>
+                {/*  check per evitare lo sfarfallio (lo state è lento a caricarsi e si vede per un millesimo di secondo il contenuto di un altro componente): se le categorie non hanno nulla (null) mostra un div vuoto velocissimo; se dentro c'è roba esegui il resto del codice */}
+                {categorieDelRomanzo === null ? <div className="vuoto" /> : (Object.keys(categorieDelRomanzo).length > 0 ?
+                    <div className="container-categorie">
+                        {Object.keys(categorieDelRomanzo).map(categoria => (
+
+                            <div className="categoria" style={{ backgroundImage: `url("${Background}")` }}>
+                                <Link to={`/${romanzoSelezionato.titolo}/${categoria}`} key={categoria}><div className="nome-della-categoria">
+                                    {categoria}
+                                    <span> ( {categorieDelRomanzo[categoria].length} )</span>
+                                </div> </Link>
+
                             </div>
-                        </Link>
-                    ))}
-                </div> : <div className="no-categorie"><p className="p-no-categorie">Nessuna categoria</p></div>)
-            }
+
+                        ))}
+                    </div> : <div className="no-categorie"><p className="p-no-categorie">Nessuna categoria</p></div>)
+                } </div>
             <div className="div-bottoni-categorie">
                 <form method="POST" onSubmit={salvaCategoria}>
                     <input className="aggiungi-una-categoria" type="text" placeholder="categoria da aggiungere" onChange={prendiCategoria} value={categoria} />

@@ -52,7 +52,13 @@ const Articoli = ({ romanzoSelezionato, setRomanzoSelezionato }) => {
                     </div>
                 </div>
 
-                : <div className="no-articoli"><p className="p-no-articoli">Nessun articolo presente</p></div>
+                : <div className="no-articoli"><p className="p-no-articoli">Nessun articolo presente</p>
+
+                    <div className="div-bottoni-articoli">
+                        <Link to={`/${romanzoSelezionato.titolo}/${nomeCategoria}/crea-articolo`}><button className="inserisci-articolo">Inserisci un articolo</button></Link>
+                    </div>
+                </div>
+
             }
 
         </div>
