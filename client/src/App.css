@@ -193,25 +193,23 @@ li:hover {
 .container-generale-categorie {
     width: 100%;
     background-color:#202020;
-    /* background-color: yellow; */
     padding: 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+   
 }
 
 
 .container-categorie {
-    /* background-color: red; */
-    padding-top: 20px;
-    padding-bottom: 20px;
-    
+    padding: 20px;
+    overflow: hidden;
 }
 
 .nome-del-romanzo {
     background-color: inherit;
     text-align: center;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
     background-color: inherit;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -219,29 +217,45 @@ li:hover {
 
 ul.lista-categorie {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 30px !important; 
-    height: calc(100% - 20px);  /* -20px del nome-del-romanzo  */
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-row-gap: 50px;
+    grid-column-gap: 80px;
+    height: calc(100% - 50px);  /* -50px del nome-del-romanzo  */
     overflow: auto;
+    padding: 50px;
 }
 
 .categoria {
     background-color: inherit;
 }
 
-.nome-della-categoria {
-    height: 120px;
+.nome-della-categoria, .lista-articoli li.li-titolo a, .lista-categorie .categoria li a  {
     display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
     justify-content: space-evenly;
+    flex-direction: column;
+    /*modifica questi h/w insieme a h/w di ".lista-articoli li.li-titolo, .lista-categorie .categoria" e ai min-max dei grid */
+    height: 160px;
+    max-width: 160px;
+    max-height: 160px;
+    /* background-color: red; */
+    text-align: center;
 }
+
+.nome-della-categoria span {
+    overflow: hidden;
+    text-overflow: ellipsis !important;
+    max-width: inherit;
+    max-height: inherit;
+   text-align: center;
+   letter-spacing: 2px;
+   text-transform: uppercase;
+}
+
 
 .div-bottoni-categorie {
     display: flex;
     justify-content: space-evenly;
-    padding-top: 30px;
+    padding-top: 50px;
     background-color: #202020;
     flex-wrap: wrap;
     
@@ -259,9 +273,12 @@ ul.lista-categorie {
 }
 
 .no-categorie {
-    /* background-color: rgb(255, 196, 0); */
    font-size: 1.6rem; 
    padding: 20px;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%);
 }
 
 .no-categorie p {
@@ -273,7 +290,8 @@ ul.lista-categorie {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-top: 5px;
+        padding-top: 50px;
+        
     }
 
     .div-bottoni-categorie form {
@@ -288,7 +306,8 @@ ul.lista-categorie {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-top: 5px;
+        padding-top: 50px;
+        background-color: red;
     }
 
     .div-bottoni-categorie form {
@@ -325,31 +344,41 @@ html {
     justify-content: space-between;
     flex-direction: column;
     position: relative;
-    /*max-height: 95vh;*/
 }
 
-.container-articoli, .container-categorie {
+.container-articoli {
     overflow: hidden;
     padding-left: 20px;
     padding-right: 20px;
 }
 
-.container-articoli .nome-categoria, .container-categoria .nome-del-romanzo {
+.container-articoli {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
-    padding: 10px;
     max-height: inherit;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
+.nome-categoria {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    max-height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 20px !important;
+    padding-bottom: 50px !important;
+}
+
 .lista-articoli {
     display: grid;
-    /* height: calc(90vh - 40px); */
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 30px !important; 
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-row-gap: 50px;
+    grid-column-gap: 80px;
     padding-top: 20px;
     padding-bottom: 50px !important;
 }
@@ -369,17 +398,13 @@ html {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    min-height: 200px;
-    min-width: 200px;
+
+    /*modifica questi h/w insieme a h/w di .nome-della-categoria e ai minmax dei grid */
+    min-height: 240px;
+    min-width: 240px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.lista-articoli li.li-titolo a, .lista-categorie .categoria li a {
-    max-width: 140px;
-    text-align: center;
-    letter-spacing: 2px;
 }
 
 .div-bottoni-articoli {

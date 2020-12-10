@@ -101,7 +101,7 @@ app.delete('/api/delete-categoria/:romanzo/:categoria', async (req, res) => {
     try {
         const categoria = req.params.categoria.toLowerCase();
         if (categoria.trim() == "")
-            return res.send();
+            return res.status(400).send();
 
         let romanzo = await RomanzoModel.findOne({ titolo: req.params.romanzo });
         let categorieAttuali = romanzo.toObject().categorie;

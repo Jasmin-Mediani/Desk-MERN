@@ -116,7 +116,7 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
     return (  //Oggetto, prendo le chiavi che finiscono nell'array "categorieDelRomanzo" generato dalla funzione keys(), su cui mappo
         <div className="container-generale-categorie">
             {/*  check per evitare lo sfarfallio (lo state è lento a caricarsi e si vede per un millesimo di secondo il contenuto di un altro componente): se le categorie non hanno nulla (null) mostra un div vuoto velocissimo; se dentro c'è roba esegui il resto del codice */}
-            {categorieDelRomanzo === null ? <div className="vuoto" /> : (Object.keys(categorieDelRomanzo).length > 0 ?
+            {categorieDelRomanzo === null ? <div className="vuoto">non c'è nulla</div> : (Object.keys(categorieDelRomanzo).length > 0 ?
                 <div className="container-categorie">
                     <p className="nome-del-romanzo">{titoloRomanzo}</p>
                     <ul className="lista-categorie">
@@ -124,7 +124,7 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
                             <li className="categoria" style={{ backgroundImage: `url("${Background}")` }}>
                                 <Link to={`/${romanzoSelezionato.titolo}/${categoria}`} key={categoria}>
                                     <div className="nome-della-categoria">
-                                        {categoria}
+                                        <span>{categoria}</span>
                                         <span> ( {categorieDelRomanzo[categoria].length} )</span>
                                     </div>
                                 </Link>
