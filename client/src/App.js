@@ -39,8 +39,6 @@ const App = () => {
               <Route path="/" exact component={Welcome} />
               <Route exact path="/home" component={Home}></Route>
 
-
-
               <Route path="/:titoloRomanzo/:nomeCategoria/:titoloArticolo/modifica-articolo" exact render={(props) => (<ModificaArticolo {...props} romanzoSelezionato={romanzoSelezionato} callbackSetRomanzoSelezionato={setRomanzoSelezionato} />)} />
 
               <Route path="/:titoloRomanzo/:nomeCategoria/crea-articolo" exact render={(props) => (<CreaArticolo {...props} romanzoSelezionato={romanzoSelezionato} setRomanzoSelezionato={setRomanzoSelezionato} />)} />

@@ -188,12 +188,12 @@ li:hover {
     background-color: rgb(105, 105, 105);
 }
 
-/************************************Container Categorie *********************************************/
+/************************** COMPONENTE CATEGORIE **************************/
 
 .container-generale-categorie {
     width: 100%;
     background-color:#202020;
-    background-color: yellow;
+    /* background-color: yellow; */
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -202,23 +202,40 @@ li:hover {
 
 
 .container-categorie {
-    background-color: red;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    /* background-color: red; */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
 }
 
 .nome-del-romanzo {
-    background-color: pink;
+    background-color: inherit;
+    text-align: center;
+    padding-bottom: 20px;
+    background-color: inherit;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-.lista-categorie {
+ul.lista-categorie {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 30px !important; 
-    padding-top: 20px;
-    padding-bottom: 50px !important;
-    background-color: green;
-    height: auto;
+    height: calc(100% - 20px);  /* -20px del nome-del-romanzo  */
+    overflow: auto;
+}
+
+.categoria {
+    background-color: inherit;
+}
+
+.nome-della-categoria {
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .div-bottoni-categorie {
@@ -227,9 +244,8 @@ li:hover {
     padding-top: 30px;
     background-color: #202020;
     flex-wrap: wrap;
+    
 }
-
-
 
 .div-bottoni-categorie button, .div-bottoni-categorie input {
     letter-spacing: 2px;
@@ -243,13 +259,47 @@ li:hover {
 }
 
 .no-categorie {
-    background-color: rgb(255, 196, 0);
+    /* background-color: rgb(255, 196, 0); */
    font-size: 1.6rem; 
    padding: 20px;
 }
 
 .no-categorie p {
     text-align: center;
+}
+
+@media screen and (max-width: 945px) {
+    .div-bottoni-categorie {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 5px;
+    }
+
+    .div-bottoni-categorie form {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 614px) {
+
+  
+    .div-bottoni-categorie {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 5px;
+    }
+
+    .div-bottoni-categorie form {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .div-bottoni-categorie form button {
+        margin-top: 10px;
+    }
 }
 
 
