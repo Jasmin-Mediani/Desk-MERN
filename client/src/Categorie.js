@@ -115,24 +115,36 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
 
     return (  //Oggetto, prendo le chiavi che finiscono nell'array "categorieDelRomanzo" generato dalla funzione keys(), su cui mappo
         <div className="container-generale-categorie">
-            <div>
-                <p className="nome-del-romanzo">{titoloRomanzo}</p>
-                {/*  check per evitare lo sfarfallio (lo state è lento a caricarsi e si vede per un millesimo di secondo il contenuto di un altro componente): se le categorie non hanno nulla (null) mostra un div vuoto velocissimo; se dentro c'è roba esegui il resto del codice */}
-                {categorieDelRomanzo === null ? <div className="vuoto" /> : (Object.keys(categorieDelRomanzo).length > 0 ?
-                    <div className="container-categorie">
+            {/*  check per evitare lo sfarfallio (lo state è lento a caricarsi e si vede per un millesimo di secondo il contenuto di un altro componente): se le categorie non hanno nulla (null) mostra un div vuoto velocissimo; se dentro c'è roba esegui il resto del codice */}
+            {categorieDelRomanzo === null ? <div className="vuoto" /> : (Object.keys(categorieDelRomanzo).length > 0 ?
+                <div className="container-categorie">
+                    <p className="nome-del-romanzo">{titoloRomanzo}</p>
+                    <ul className="lista-categorie">
                         {Object.keys(categorieDelRomanzo).map(categoria => (
-
-                            <div className="categoria" style={{ backgroundImage: `url("${Background}")` }}>
-                                <Link to={`/${romanzoSelezionato.titolo}/${categoria}`} key={categoria}><div className="nome-della-categoria">
-                                    {categoria}
-                                    <span> ( {categorieDelRomanzo[categoria].length} )</span>
-                                </div> </Link>
-
-                            </div>
-
+                            <li className="categoria" style={{ backgroundImage: `url("${Background}")` }}>
+                                <Link to={`/${romanzoSelezionato.titolo}/${categoria}`} key={categoria}>
+                                    <div className="nome-della-categoria">
+                                        {categoria}
+                                        <span> ( {categorieDelRomanzo[categoria].length} )</span>
+                                    </div>
+                                </Link>
+                            </li>
                         ))}
-                    </div> : <div className="no-categorie"><p className="p-no-categorie">Nessuna categoria</p></div>)
-                } </div>
+                    </ul>
+
+                </div>
+
+                : <div className="no-categorie">
+                    <p className="p-no-categorie">Nessuna categoria</p>
+                    <div className="div-bottoni-categorie">
+                        <form method="POST" onSubmit={salvaCategoria}>
+                            <input className="aggiungi-una-categoria" type="text" placeholder="categoria da aggiungere" onChange={prendiCategoria} value={categoria} />
+                            <button className="inserisci-categoria" onClick={creaCategoria}>inserisci</button>
+                        </form>
+                    </div>
+                </div>)
+            }
+
             <div className="div-bottoni-categorie">
                 <form method="POST" onSubmit={salvaCategoria}>
                     <input className="aggiungi-una-categoria" type="text" placeholder="categoria da aggiungere" onChange={prendiCategoria} value={categoria} />
@@ -144,7 +156,8 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
                     <button className="elimina-categoria" onClick={eliminaCategoria} >elimina</button>
                 </form>
             </div>
-        </div>
+
+        </div >
     );
 }
 

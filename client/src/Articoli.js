@@ -39,7 +39,7 @@ const Articoli = ({ romanzoSelezionato, setRomanzoSelezionato }) => {
         <div className="container-generale">
             {articoli.length > 0 ?
                 <div className="container-articoli">
-                    <p className="nome-categoria"> {nomeCategoria}</p>
+                    <p className="nome-categoria"> {titoloRomanzo} / {nomeCategoria}</p>
                     <ul className="lista-articoli">
                         {articoli.map((articolo, indice) => (
                             <li className="li-titolo" style={{

@@ -189,75 +189,47 @@ li:hover {
 }
 
 /************************************Container Categorie *********************************************/
+
 .container-generale-categorie {
+    width: 100%;
+    background-color:#202020;
+    background-color: yellow;
+    padding: 5px;
     display: flex;
     flex-direction: column;
-    width: 100%;
     justify-content: space-between;
-    background-color:#202020;
-    padding-top: 20px;
-    padding-bottom: 10px;
 }
-.nome-del-romanzo {
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    padding-bottom: 20px;
-}
+
+
 .container-categorie {
-    width: 100%;
-    flex-wrap: wrap;
-    overflow: auto;
+    background-color: red;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.nome-del-romanzo {
+    background-color: pink;
+}
+
+.lista-categorie {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    padding-right: 40px;
-    height: fit-content;
-    max-height: 95vh;
-    gap: 50px 50px;
-    padding-left: 40px;
+    grid-gap: 30px !important; 
+    padding-top: 20px;
+    padding-bottom: 50px !important;
+    background-color: green;
+    height: auto;
 }
-
-.categoria {
-    /* display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-    width: 140px;
-    height: 140px;
-    background-color: #354b5f;
-    margin: 20px;
-    border-radius: 5px;
-    color: white;
-    font-size: 19px; */
-
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    min-height: 200px;
-    min-width: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.nome-della-categoria {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 140px;
-    width: 120px;
-    font-size: 1.4rem;
-    text-align: center;
-}
-
 
 .div-bottoni-categorie {
     display: flex;
     justify-content: space-evenly;
-    font-size: 20px; 
-    padding-top: 20px;
+    padding-top: 30px;
+    background-color: #202020;
+    flex-wrap: wrap;
 }
+
+
 
 .div-bottoni-categorie button, .div-bottoni-categorie input {
     letter-spacing: 2px;
@@ -280,84 +252,6 @@ li:hover {
     text-align: center;
 }
 
-@media screen and (max-width: 900px) {
-
-    .div-bottoni-categorie {
-        height: 120px;
-        padding: 0;
-    }
-    .div-bottoni-categorie form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-       justify-content: space-around;
-        flex-wrap: wrap;
-        height: inherit;
-       
-    }
-
-    .div-bottoni-categorie button {
-        padding-top: 10px;
-    }
-
-}
-
-@media screen and (max-width: 681px) {
-
-    .div-bottoni-categorie {
-        height: 200px;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        
-    }
-    .div-bottoni-categorie form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-       justify-content: flex-end;
-        flex-wrap: wrap;
-        height: inherit;
-    }
-
-    .div-bottoni-categorie button {
-        margin-top: 5px;
-    }
-
-}
-
-@media screen and (max-width: 285px) {
-
-    .div-bottoni-categorie {
-        height: 200px;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        
-    }
-    .div-bottoni-categorie form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-       justify-content: flex-end;
-        flex-wrap: wrap;
-        height: inherit;
-    }
-
-    .div-bottoni-categorie button {
-        margin-top: 5px;
-    }
-
-    .container-categorie {
-        padding: 0;
-    }
-
-}
-
-
-
 
 /************************* COMPONENTE ARTICOLI *********************/
 
@@ -373,7 +267,7 @@ html {
     text-align: center;
 }
 
-.container-generale {
+.container-generale, .container-generale-articoli {
     width: 100%;
     max-height: 100vh;
     background-color: #202020;
@@ -384,13 +278,13 @@ html {
     /*max-height: 95vh;*/
 }
 
-.container-articoli {
+.container-articoli, .container-categorie {
     overflow: hidden;
     padding-left: 20px;
     padding-right: 20px;
 }
 
-.container-articoli .nome-categoria {
+.container-articoli .nome-categoria, .container-categoria .nome-del-romanzo {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -408,9 +302,9 @@ html {
     grid-gap: 30px !important; 
     padding-top: 20px;
     padding-bottom: 50px !important;
-   }
+}
 
-.lista-articoli li {
+.lista-articoli li, .lista-categorie li {
     width: auto;
     color: #BDA448;
     display: flex;
@@ -420,7 +314,7 @@ html {
     background-color: inherit;
 } 
 
-.lista-articoli li.li-titolo {
+.lista-articoli li.li-titolo, .lista-categorie .categoria {
     /*background-image è inline nel lato JSX*/
     background-size: contain;
     background-repeat: no-repeat;
@@ -432,7 +326,7 @@ html {
     align-items: center;
 }
 
-.lista-articoli li.li-titolo a {
+.lista-articoli li.li-titolo a, .lista-categorie .categoria li a {
     max-width: 140px;
     text-align: center;
     letter-spacing: 2px;
@@ -669,25 +563,20 @@ textarea {
 }
 
 @media screen and (max-width: 769px) {
-    .container-generale {
+    .container-generale, .container-generale-articoli {
         height: auto;
         max-height: auto;
     }
-
-    /* .lista-articoli {
-        padding-bottom: 0px !important;
-
-    } */
 }
 
 
 @media screen and (max-width: 361px) {
-    .container-generale {
+    .container-generale, .container-generale-articoli {
         height: auto;
         max-height: auto;
     }
    
-    .lista-articoli {
+    .lista-articoli, .lista-categorie {
         padding-bottom: 0px !important;
 
     }
