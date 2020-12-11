@@ -26,12 +26,13 @@ body {
 }
 
 .div-navigazione {
+    max-height: calc(100vh - 56px); /* cioé -36px di bottone switch e -20px di padding al suo div-toggler */
     height: calc(100vh - 56px); /* cioé -36px di bottone switch e -20px di padding al suo div-toggler */
     display: flex;
     flex-wrap: nowrap;
     padding: 20px;
     width: 100%;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
 }
 
 .div-toggler {
@@ -65,7 +66,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #303030;
     -webkit-transition: 0.4s;
     transition: 0.4s;
   }
@@ -77,17 +78,17 @@ body {
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: white;
+    background-color: #1d1d1d;
     -webkit-transition: 0.4s;
     transition: 0.4s;
   }
   
   input:checked + .slider {
-    background-color: #2196f3;
+    background-color: #4e4e4e;
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px #2196f3;
+    box-shadow: 0 0 1px #4e4e4e;
   }
   
   input:checked + .slider:before {
@@ -107,31 +108,33 @@ body {
 
 
 /*********************** NAVBAR LATERALE (SELEZIONE ROMANZO) *******************/
+.nav-outer {
+    display: flex;
+    flex-direction: column;
+    /* background-color: red; */
+    justify-content: center;
+}
 .navWrapper {
     display: flex;
     width: fit-content;
     position: relative;
     align-items: center;
+    /* background-color: pink; */
 }
 nav {
     width: max-content;
-    max-height: 70vh;
+    max-height: inherit;
+    height: 60vh;
     overflow: auto;
-    scrollbar-width: none; /* scrollbar invisibile per Firefox */
-    -ms-overflow-style: none;  /* scrollbar invisibile per Internet Explorer 10+ */
 }
 
 ul {
-    
     list-style: none;
     overflow-y: scroll;
     height: inherit;
     border-radius: 5px;
     background-color: transparent;
-    overflow: auto;
-    scrollbar-width: none; /* scrollbar invisibile per Firefox */
-    -ms-overflow-style: none;
-    
+    overflow: auto;    
 }
 
 ul:after {
@@ -140,7 +143,7 @@ ul:after {
     clear: both;
 }
 
-li {
+li, .li-home {
     display: flex;
     font-size: 17px;
     padding: 12px;
@@ -154,6 +157,15 @@ li {
     margin: 1px;
     background-color: rgb(39, 39, 39);
 }
+
+.li-home {
+    margin-bottom: 20px;
+    width: calc(100% - 30px);
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+}
+
 
 a {
     text-decoration: none;
@@ -269,8 +281,13 @@ ul.lista-categorie {
     border: none;
 }
 
+.div-bottoni-categorie input {
+    width: 230px;
+}
+
 .div-bottoni-categorie button {
     border: 1px solid #202020;
+    margin-left: 2px;
 }
 
 .no-categorie {
@@ -300,15 +317,13 @@ ul.lista-categorie {
     }
 }
 
-@media screen and (max-width: 614px) {
+@media screen and (max-width: 640px) {
 
-  
     .div-bottoni-categorie {
         flex-direction: column;
         justify-content: center;
         align-items: center;
         padding-top: 50px;
-        background-color: red;
     }
 
     .div-bottoni-categorie form {
@@ -505,6 +520,7 @@ html {
     padding: 5px;
     font-size: 15px;
 }
+
 
 
 /****************** CREA ARTICOLO ********************/

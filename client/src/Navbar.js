@@ -10,16 +10,28 @@ function Nav({ callbackRomanzoSelezionato, romanzoSelezionato }) {
     useEffect(() => {
     }, [romanzi]);
 
+
+    //Fix! ...se clicco su Home i componenti funzionano, ma nella navbar rimane selezionato l'ultimo romanzo su cui stavo lavorando, perchè rimane salvato nello state di App (RomanzoSelezionato). E' brutto. Soluzione da attuare quando clicco su HOME (.li-home):
+    const annientaRomanzoSelezionato = () => {
+        callbackRomanzoSelezionato({});  //callbackRomanzoSelezionato nel padre App equivale a setRomanzoSelezionato, quindi romanzoSelezionato diventa un oggetto vuoto.
+    }
+
+
     return (
-        <div className="navWrapper">
-            <nav>
-                <ul>
-                    {romanzi.map((romanzo, indice) => (
-                        <Link key={indice} to={`/${romanzo.titolo}`}><li className={romanzoSelezionato.titolo === romanzo.titolo ? "navbar-link cliccato" : "navbar-link"}>{romanzo.titolo}</li></Link>
-                    ))}
-                </ul>
-            </nav>
-            <div className="bottoncino"></div>
+        <div className="nav-outer">
+            <ul>
+                <li className="li-home" onClick={annientaRomanzoSelezionato}><Link to="/home">Home</Link></li>
+            </ul>
+            <div className="navWrapper">
+                <nav>
+                    <ul>
+                        {romanzi.map((romanzo, indice) => (
+                            <Link key={indice} to={`/${romanzo.titolo}`}><li className={romanzoSelezionato.titolo === romanzo.titolo ? "navbar-link cliccato" : "navbar-link"}>{romanzo.titolo}</li></Link>
+                        ))}
+                    </ul>
+                </nav>
+                <div className="bottoncino"></div>
+            </div>
         </div>
     );
 }
