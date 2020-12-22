@@ -234,6 +234,7 @@ li:hover {
 .container-categorie {
     padding: 20px;
     overflow: hidden;
+    padding-bottom: 50px;
 }
 
 .nome-del-romanzo {
@@ -333,6 +334,10 @@ ul.lista-categorie {
 }
 
 @media screen and (max-width: 945px) {
+
+    .container-categorie {
+        padding-bottom: 200px;
+    }
     .div-bottoni-categorie {
         flex-direction: column;
         justify-content: center;
@@ -347,6 +352,10 @@ ul.lista-categorie {
 }
 
 @media screen and (max-width: 640px) {
+
+    .container-categorie {
+        padding-bottom: 250px;
+    }
 
     .div-bottoni-categorie {
         flex-direction: column;
