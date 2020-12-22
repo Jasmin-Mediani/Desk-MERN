@@ -63,7 +63,7 @@ const Home = () => {
             </form>
 
             <form onSubmit={eliminaRomanzo} method="DELETE">
-                <input className="elimina-un-romanzo" type="text" value={titoloDaEliminare} onChange={prendiTitoloPerEliminarlo} placeholder="titolo del romanzo da cancellare" />
+                <input className="elimina-un-romanzo" type="text" value={titoloDaEliminare} onChange={prendiTitoloPerEliminarlo} placeholder="titolo del romanzo da eliminare" />
                 <button className="elimina-romanzo" onClick={eliminaRomanzo}>elimina</button>
             </form>
 
