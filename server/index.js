@@ -38,7 +38,6 @@ app.post('/api/aggiungi-romanzo', async (req, res) => {
     }
 });
 
-console.log(romanzo);
 
 /****************** CALL A TUTTI I ROMANZI NEL DB ***************/
 
