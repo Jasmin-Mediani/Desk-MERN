@@ -66,15 +66,16 @@ const Articolo = ({ setRomanzoSelezionato }) => {
                 <h2>{articoloSelezionato.titolo}</h2>
                 <div className="div-corpo-testo">{articoloSelezionato.corpoDelTesto ? parse(articoloSelezionato.corpoDelTesto) : ""}</div>
                 <img src="" alt="" />
+                <div className="bottoni">
+                    <button>articolo precedente</button>
+                    <form method="DELETE" onSubmit={prevent}>
+                        <button className="elimina-articolo" onClick={eliminaArticolo}>elimina articolo</button>
+                    </form>
+                    <Link to={`/${titoloRomanzo}/${nomeCategoria}/${titoloArticolo}/modifica-articolo`}><button>Modifica</button></Link>
+                    <button>articolo successivo</button>
+                </div>
             </div>
-            <div className="bottoni">
-                <button>articolo precedente</button>
-                <form method="DELETE" onSubmit={prevent}>
-                    <button className="elimina-articolo" onClick={eliminaArticolo}>elimina articolo</button>
-                </form>
-                <Link to={`/${titoloRomanzo}/${nomeCategoria}/${titoloArticolo}/modifica-articolo`}><button>Modifica</button></Link>
-                <button>articolo successivo</button>
-            </div>
+
         </div>
     );
 }

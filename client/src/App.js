@@ -34,7 +34,6 @@ const App = () => {
           <Router>
             <GlobalStyle />
             <Navbar callbackRomanzoSelezionato={setRomanzoSelezionato} romanzoSelezionato={romanzoSelezionato} />
-
             <Switch>
               <Route path="/" exact component={Welcome} />
               <Route exact path="/home" component={Home}></Route>

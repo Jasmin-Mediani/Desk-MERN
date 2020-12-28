@@ -16,6 +16,8 @@ function Nav({ callbackRomanzoSelezionato, romanzoSelezionato }) {
         callbackRomanzoSelezionato({});  //callbackRomanzoSelezionato nel padre App equivale a setRomanzoSelezionato, quindi romanzoSelezionato diventa un oggetto vuoto.
     }
 
+    console.log(romanzi);
+
 
     return (
         <div className="nav-outer">
