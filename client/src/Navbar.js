@@ -42,3 +42,5 @@ export default Nav;
 
 
 //nota: nel map dei romanzi, al singolo romanzo ho messo indice come key/chiave. In realtà ciascun romanzo avrebbe un id, accessibile con {romanzo.id}, ma con index è più univoco... e mi fa ricordare che dentro il map, il primo argomento è sempre l'oggetto singolo/esimo del ciclo, mentre il secondo argomento è sempre l'index/indice. 
+
+//nota 2: la var "romanzoSelezionato" proviene dal componente fratello Categorie (che la fa risalire ad App, e App la passa a Navbar)

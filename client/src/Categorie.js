@@ -3,19 +3,20 @@ import { Link, useParams } from 'react-router-dom';
 import { useContext } from 'react';
 import { RomanziContext } from './RomanziContext';
 import Axios from 'axios';
+import { useHistory } from 'react-router-dom';  //per il redirect verso /home se il titolo del romanzo nell'url non è corretto. 
+
 
 
 const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategorieDelRomanzo }) => {
     const [romanzi, setRomanzi] = useContext(RomanziContext);
     const [categorieDelRomanzo, setCategorieDelRomanzo] = useState(null);
     //const [colore, setColore] = useState("#354b5f");
-
     const [categoria, setCategoria] = useState("");
     const [categoriaDaEliminare, setCategoriaDaEliminare] = useState("");
 
     let { titoloRomanzo } = useParams();
-
     const Background = "/immagini/frame-dark-mode.png";
+    let history = useHistory(); //per il redirect verso /home se il titolo del romanzo nell'url non è corretto. 
 
 
     const salvaCategoria = (e) => {
@@ -64,12 +65,16 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
 
 
     useEffect(() => {
+        //romanzoSelezionato viene impostato prendendo come riferimento il titolo del romanzo scritto nell'url. 
         for (const romanzo of romanzi) {
-            if (romanzo.titolo === titoloRomanzo) {
-                setRomanzoSelezionato(romanzo);
+            if (romanzo.titolo === titoloRomanzo) {  //se il titolo del romanzo è uguale a quello che si trova come parametro nell'url...
+                setRomanzoSelezionato(romanzo);     //prendi quell'oggetto-romanzo e mettilo nella var "romanzoSelezionato"
                 return;
             }
         }
+
+        history.push('/home'); //useHistory per fare un redirect: se nell'url scrivo il nome di un romanzo che non esiste, vengo reindirizzata a /home. 
+
     }, [titoloRomanzo, romanzi, setRomanzoSelezionato]);
 
     //ogni volta che cambia il romanzoSelezionato, Categorie si refresha e le categorie assumono il colore che ho associato al romanzo. 
@@ -83,10 +88,16 @@ const Categorie = ({ romanzoSelezionato, setRomanzoSelezionato, callbackCategori
     const ciclaSulleCategorie = () => {
         if (romanzoSelezionato && romanzoSelezionato.categorie) {
 
-            // metto le categorie in ordine alfabetico:
+            // metto le categorie in ordine alfabetico => creo un nuovo oggetto vuoto
             const categorieOrdinate = {};
-            Object.keys(romanzoSelezionato.categorie).sort().forEach(function (key) {
+            //Object.keys prende un oggetto e genera un array con le sue chiavi. Poi con sort lo metto in ordine alfabetico
+            var arrayCategorieInOrdine = Object.keys(romanzoSelezionato.categorie).sort();
+            //eseguo un foreach sull'array generato:
+            arrayCategorieInOrdine.forEach(function (key) {
+                /*assegno all'oggetto vuoto le chiavi (ora ordinate) e con = gli attribuisco il rispettivo valore. NON E' UNA SOVRASCRIZIONE. Significa: 
+                    Assegnazione       :   Accesso al val tramite chiave        */
                 categorieOrdinate[key] = romanzoSelezionato.categorie[key];
+
             });
 
             //salvo le categorie nello state

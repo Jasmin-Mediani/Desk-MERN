@@ -10,8 +10,8 @@ const Home = () => {
     const [titoloDaEliminare, setTitoloDaEliminare] = useState("");
     const [romanzi, setRomanzi] = useContext(RomanziContext);
 
-
-    const salvaRomanzo = (e) => {
+    //sto usando male i form: non contengono un input di tipo submit, ma un bottone che rimanda a funzioni; serve che il form sia sottoposto a prevent default, sennò quando clicco invio si autoresetta; 
+    const prevent = (e) => {
         e.preventDefault();
         setTitolo("");
     }
@@ -57,7 +57,7 @@ const Home = () => {
     return (
         <div className="contenitore-home">
 
-            <form onSubmit={salvaRomanzo} method="POST">
+            <form onSubmit={prevent} method="POST">
                 <input className="aggiungi-un-romanzo" type="text" value={titolo} onChange={prendiTitolo} placeholder="titolo del romanzo da aggiungere" />
                 <Link to={`/${titolo}`}><button className="inserisci-romanzo" onClick={creaRomanzo}>inserisci</button></Link>
             </form>
